@@ -126,7 +126,7 @@
         <scene sceneID="lqn-6D-Gpe">
             <objects>
                 <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" id="iZb-PO-EYL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="F9y-Oq-ZFQ"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="F9y-Oq-ZFQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Aro-5e-K0V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -311,7 +311,7 @@
         <scene sceneID="Drl-zW-VBb">
             <objects>
                 <navigationController title="Favorites" automaticallyAdjustsScrollViewInsets="NO" id="13d-vW-kQ7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="lS0-OI-X4H"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" id="lS0-OI-X4H"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BYu-Xz-K0O">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -330,7 +330,7 @@
         <scene sceneID="iVd-ES-Iv7">
             <objects>
                 <navigationController title="Recipes" automaticallyAdjustsScrollViewInsets="NO" id="bzS-Mu-A37" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="zk3-uL-kJL"/>
+                    <tabBarItem key="tabBarItem" title="Recipes" id="zk3-uL-kJL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0vS-6M-Oq8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -347,6 +347,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1JD-qk-D5f"/>
+        <segue reference="aJD-Pa-dVO"/>
     </inferredMetricsTieBreakers>
 </document>
