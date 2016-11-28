@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="1313" y="-625"/>
         </scene>
-        <!--View Controller-->
+        <!--Recipe View Controller-->
         <scene sceneID="r48-ri-2UO">
             <objects>
-                <viewController id="3y6-56-dXe" sceneMemberID="viewController">
+                <viewController id="3y6-56-dXe" customClass="RecipeViewController" customModule="Oishii" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="P3e-PH-h4R"/>
                         <viewControllerLayoutGuide type="bottom" id="0tL-pH-NNR"/>
@@ -69,7 +69,7 @@
         <!--Home-->
         <scene sceneID="sKr-D0-PaR">
             <objects>
-                <viewController title="Home" id="qA4-Hu-whO" sceneMemberID="viewController">
+                <viewController title="Home" id="qA4-Hu-whO" customClass="HomveViewController" customModule="Oishii" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rUL-no-LfJ"/>
                         <viewControllerLayoutGuide type="bottom" id="zIK-g7-dUm"/>
@@ -164,7 +164,7 @@
         <scene sceneID="c2G-Wx-OUg">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imS-s7-Zcx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController title="Favorites" id="3NN-Vo-guh" sceneMemberID="viewController">
+                <tableViewController title="Favorites" id="3NN-Vo-guh" customClass="FavoritesTableTableViewController" customModule="Oishii" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="83" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Cd-9T-Yst">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -240,7 +240,7 @@
         <scene sceneID="7r4-ee-7aU">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UZL-sl-KGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController title="Recipes" id="SMy-rV-05E" sceneMemberID="viewController">
+                <tableViewController title="Recipes" id="SMy-rV-05E" customClass="RecipesTableViewController" customModule="Oishii" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="83" sectionHeaderHeight="28" sectionFooterHeight="28" id="EbO-6M-5KY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -347,6 +347,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aJD-Pa-dVO"/>
+        <segue reference="1JD-qk-D5f"/>
     </inferredMetricsTieBreakers>
 </document>

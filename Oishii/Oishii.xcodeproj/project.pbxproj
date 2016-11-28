@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		496B3B5E1DEBF49E00E6359F /* FavoritesTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496B3B5D1DEBF49E00E6359F /* FavoritesTableTableViewController.swift */; };
+		496B3B601DEBF4AE00E6359F /* RecipesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496B3B5F1DEBF4AE00E6359F /* RecipesTableViewController.swift */; };
+		496B3B621DEBF50400E6359F /* HomveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496B3B611DEBF50400E6359F /* HomveViewController.swift */; };
+		496B3B641DEBF52800E6359F /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496B3B631DEBF52800E6359F /* RecipeViewController.swift */; };
 		9D60F1FC1DE52CB100AB0993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60F1FB1DE52CB100AB0993 /* AppDelegate.swift */; };
 		9D60F1FE1DE52CB100AB0993 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60F1FD1DE52CB100AB0993 /* ViewController.swift */; };
 		9D60F2011DE52CB100AB0993 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D60F1FF1DE52CB100AB0993 /* Main.storyboard */; };
@@ -34,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		496B3B5D1DEBF49E00E6359F /* FavoritesTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableTableViewController.swift; sourceTree = "<group>"; };
+		496B3B5F1DEBF4AE00E6359F /* RecipesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesTableViewController.swift; sourceTree = "<group>"; };
+		496B3B611DEBF50400E6359F /* HomveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomveViewController.swift; sourceTree = "<group>"; };
+		496B3B631DEBF52800E6359F /* RecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		9D60F1F81DE52CB100AB0993 /* Oishii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oishii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D60F1FB1DE52CB100AB0993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D60F1FD1DE52CB100AB0993 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,7 +107,11 @@
 			children = (
 				9D60F1FB1DE52CB100AB0993 /* AppDelegate.swift */,
 				9D60F1FD1DE52CB100AB0993 /* ViewController.swift */,
+				496B3B5D1DEBF49E00E6359F /* FavoritesTableTableViewController.swift */,
+				496B3B5F1DEBF4AE00E6359F /* RecipesTableViewController.swift */,
+				496B3B631DEBF52800E6359F /* RecipeViewController.swift */,
 				9D60F1FF1DE52CB100AB0993 /* Main.storyboard */,
+				496B3B611DEBF50400E6359F /* HomveViewController.swift */,
 				9D60F2021DE52CB100AB0993 /* Assets.xcassets */,
 				9D60F2041DE52CB100AB0993 /* LaunchScreen.storyboard */,
 				9D60F2071DE52CB100AB0993 /* Info.plist */,
@@ -260,7 +272,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D60F1FE1DE52CB100AB0993 /* ViewController.swift in Sources */,
+				496B3B621DEBF50400E6359F /* HomveViewController.swift in Sources */,
+				496B3B641DEBF52800E6359F /* RecipeViewController.swift in Sources */,
 				9D60F1FC1DE52CB100AB0993 /* AppDelegate.swift in Sources */,
+				496B3B601DEBF4AE00E6359F /* RecipesTableViewController.swift in Sources */,
+				496B3B5E1DEBF49E00E6359F /* FavoritesTableTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +521,7 @@
 				9D60F2221DE52CB100AB0993 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D60F2231DE52CB100AB0993 /* Build configuration list for PBXNativeTarget "OishiiTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +530,7 @@
 				9D60F2251DE52CB100AB0993 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D60F2261DE52CB100AB0993 /* Build configuration list for PBXNativeTarget "OishiiUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +539,7 @@
 				9D60F2281DE52CB100AB0993 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
