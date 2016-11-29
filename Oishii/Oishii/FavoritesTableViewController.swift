@@ -1,14 +1,14 @@
 //
-//  FavoritesTableTableViewController.swift
+//  FavoritesTableViewController.swift
 //  Oishii
 //
-//  Created by studentuser on 11/27/16.
+//  Created by iGuest on 11/29/16.
 //  Copyright © 2016 Bentai. All rights reserved.
 //
 
 import UIKit
 
-class FavoritesTableTableViewController: UITableViewController {
+class FavoritesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
