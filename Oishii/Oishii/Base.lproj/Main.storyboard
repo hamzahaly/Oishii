@@ -66,7 +66,7 @@
         <!--Home-->
         <scene sceneID="sKr-D0-PaR">
             <objects>
-                <viewController storyboardIdentifier="HomeSegue" title="Home" id="qA4-Hu-whO" customClass="HomeViewController" customModule="Oishii" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home" id="qA4-Hu-whO" customClass="HomeViewController" customModule="Oishii" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rUL-no-LfJ"/>
                         <viewControllerLayoutGuide type="bottom" id="zIK-g7-dUm"/>
@@ -160,7 +160,7 @@
         <!--Favorites-->
         <scene sceneID="c2G-Wx-OUg">
             <objects>
-                <tableViewController storyboardIdentifier="FavoritesSegue" title="Favorites" id="3NN-Vo-guh" customClass="FavoritesTableViewController" customModule="Oishii" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Favorites" id="3NN-Vo-guh" customClass="FavoritesTableViewController" customModule="Oishii" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="83" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Cd-9T-Yst">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
