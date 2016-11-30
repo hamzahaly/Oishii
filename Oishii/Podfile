@@ -11,14 +11,14 @@ target 'Oishii' do
   # Pods for Oishii
   pod 'Firebase/Core'
 
-  target 'OishiiTests' do
-    inherit! :search_paths
+#  target 'OishiiTests' do
+#    inherit! :search_paths
     # Pods for testing
-  end
+#  end
 
-  target 'OishiiUITests' do
-    inherit! :search_paths
+#  target 'OishiiUITests' do
+#    inherit! :search_paths
     # Pods for testing
-  end
+#  end
 
 end
