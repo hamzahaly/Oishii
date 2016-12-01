@@ -5,7 +5,8 @@ To run, download the recipes file as csv and rename as `recipes.csv`.
 
 Run the following commands:
 ```npm install
-node app.js```
+node app.js
+```
 
 Your file will be saved!
 
