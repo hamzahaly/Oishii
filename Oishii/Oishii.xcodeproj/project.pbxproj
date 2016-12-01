@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0702471EF9BCD3ACCBC00527 /* Pods_Oishii.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1449359A0D4DE50906366C27 /* Pods_Oishii.framework */; };
+		496B3B601DEBF4AE00E6359F /* RecipesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496B3B5F1DEBF4AE00E6359F /* RecipesTableViewController.swift */; };
+		496B3B641DEBF52800E6359F /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496B3B631DEBF52800E6359F /* RecipeViewController.swift */; };
+		9D0386981DEE355300E10558 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0386971DEE355300E10558 /* FavoritesTableViewController.swift */; };
+		9D03869A1DEE356900E10558 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0386991DEE356900E10558 /* HomeViewController.swift */; };
+		9D03869C1DEE3E6500E10558 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D03869B1DEE3E6500E10558 /* FavoritesTableViewCell.swift */; };
+		9D03869E1DEE3F0600E10558 /* RecipesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D03869D1DEE3F0600E10558 /* RecipesTableViewCell.swift */; };
 		9D60F1FC1DE52CB100AB0993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60F1FB1DE52CB100AB0993 /* AppDelegate.swift */; };
 		9D60F1FE1DE52CB100AB0993 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60F1FD1DE52CB100AB0993 /* ViewController.swift */; };
 		9D60F2011DE52CB100AB0993 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D60F1FF1DE52CB100AB0993 /* Main.storyboard */; };
@@ -14,6 +21,8 @@
 		9D60F2061DE52CB100AB0993 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D60F2041DE52CB100AB0993 /* LaunchScreen.storyboard */; };
 		9D60F2111DE52CB100AB0993 /* OishiiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60F2101DE52CB100AB0993 /* OishiiTests.swift */; };
 		9D60F21C1DE52CB100AB0993 /* OishiiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60F21B1DE52CB100AB0993 /* OishiiUITests.swift */; };
+		9D9850411DEE776700244135 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9850401DEE776700244135 /* SettingsViewController.swift */; };
+		9D9850431DEE7A8900244135 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D9850421DEE7A8900244135 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +43,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1449359A0D4DE50906366C27 /* Pods_Oishii.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Oishii.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BE8731CE358C606D0A0480C /* Pods_OishiiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OishiiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EE2AD6DD2ABFDFFE33E1D4F /* Pods-Oishii.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oishii.release.xcconfig"; path = "Pods/Target Support Files/Pods-Oishii/Pods-Oishii.release.xcconfig"; sourceTree = "<group>"; };
+		38AFF9F17D376CA35A0D5C89 /* Pods-Oishii.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oishii.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Oishii/Pods-Oishii.debug.xcconfig"; sourceTree = "<group>"; };
+		496B3B5F1DEBF4AE00E6359F /* RecipesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesTableViewController.swift; sourceTree = "<group>"; };
+		496B3B631DEBF52800E6359F /* RecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		6D2201D5E851C5487A00FBF8 /* Pods_OishiiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OishiiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D0386971DEE355300E10558 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		9D0386991DEE356900E10558 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9D03869B1DEE3E6500E10558 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
+		9D03869D1DEE3F0600E10558 /* RecipesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesTableViewCell.swift; sourceTree = "<group>"; };
 		9D60F1F81DE52CB100AB0993 /* Oishii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oishii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D60F1FB1DE52CB100AB0993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D60F1FD1DE52CB100AB0993 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +67,8 @@
 		9D60F2171DE52CB100AB0993 /* OishiiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OishiiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D60F21B1DE52CB100AB0993 /* OishiiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OishiiUITests.swift; sourceTree = "<group>"; };
 		9D60F21D1DE52CB100AB0993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D9850401DEE776700244135 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9D9850421DEE7A8900244135 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0702471EF9BCD3ACCBC00527 /* Pods_Oishii.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +97,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A5EBE0A56F598D1FCAA241A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				38AFF9F17D376CA35A0D5C89 /* Pods-Oishii.debug.xcconfig */,
+				1EE2AD6DD2ABFDFFE33E1D4F /* Pods-Oishii.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2B00115BCC5276A66091A525 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1449359A0D4DE50906366C27 /* Pods_Oishii.framework */,
+				6D2201D5E851C5487A00FBF8 /* Pods_OishiiTests.framework */,
+				1BE8731CE358C606D0A0480C /* Pods_OishiiUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9D60F1EF1DE52CB000AB0993 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +123,8 @@
 				9D60F20F1DE52CB100AB0993 /* OishiiTests */,
 				9D60F21A1DE52CB100AB0993 /* OishiiUITests */,
 				9D60F1F91DE52CB100AB0993 /* Products */,
+				2A5EBE0A56F598D1FCAA241A /* Pods */,
+				2B00115BCC5276A66091A525 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +143,14 @@
 			children = (
 				9D60F1FB1DE52CB100AB0993 /* AppDelegate.swift */,
 				9D60F1FD1DE52CB100AB0993 /* ViewController.swift */,
+				9D0386991DEE356900E10558 /* HomeViewController.swift */,
+				9D9850401DEE776700244135 /* SettingsViewController.swift */,
+				9D0386971DEE355300E10558 /* FavoritesTableViewController.swift */,
+				9D03869B1DEE3E6500E10558 /* FavoritesTableViewCell.swift */,
+				496B3B5F1DEBF4AE00E6359F /* RecipesTableViewController.swift */,
+				9D03869D1DEE3F0600E10558 /* RecipesTableViewCell.swift */,
+				496B3B631DEBF52800E6359F /* RecipeViewController.swift */,
+				9D9850421DEE7A8900244135 /* GoogleService-Info.plist */,
 				9D60F1FF1DE52CB100AB0993 /* Main.storyboard */,
 				9D60F2021DE52CB100AB0993 /* Assets.xcassets */,
 				9D60F2041DE52CB100AB0993 /* LaunchScreen.storyboard */,
@@ -132,9 +184,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D60F2201DE52CB100AB0993 /* Build configuration list for PBXNativeTarget "Oishii" */;
 			buildPhases = (
+				900E10B781D383B2C711C249 /* [CP] Check Pods Manifest.lock */,
 				9D60F1F41DE52CB000AB0993 /* Sources */,
 				9D60F1F51DE52CB000AB0993 /* Frameworks */,
 				9D60F1F61DE52CB000AB0993 /* Resources */,
+				A0722E3535663FB575E91BD0 /* [CP] Embed Pods Frameworks */,
+				303151AA3B7C57A4DEBE25D8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D60F2061DE52CB100AB0993 /* LaunchScreen.storyboard in Resources */,
+				9D9850431DEE7A8900244135 /* GoogleService-Info.plist in Resources */,
 				9D60F2031DE52CB100AB0993 /* Assets.xcassets in Resources */,
 				9D60F2011DE52CB100AB0993 /* Main.storyboard in Resources */,
 			);
@@ -254,13 +310,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		303151AA3B7C57A4DEBE25D8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Oishii/Pods-Oishii-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		900E10B781D383B2C711C249 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A0722E3535663FB575E91BD0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Oishii/Pods-Oishii-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9D60F1F41DE52CB000AB0993 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9D60F1FE1DE52CB100AB0993 /* ViewController.swift in Sources */,
+				496B3B641DEBF52800E6359F /* RecipeViewController.swift in Sources */,
 				9D60F1FC1DE52CB100AB0993 /* AppDelegate.swift in Sources */,
+				9D03869E1DEE3F0600E10558 /* RecipesTableViewCell.swift in Sources */,
+				9D0386981DEE355300E10558 /* FavoritesTableViewController.swift in Sources */,
+				496B3B601DEBF4AE00E6359F /* RecipesTableViewController.swift in Sources */,
+				9D03869A1DEE356900E10558 /* HomeViewController.swift in Sources */,
+				9D03869C1DEE3E6500E10558 /* FavoritesTableViewCell.swift in Sources */,
+				9D9850411DEE776700244135 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +521,7 @@
 		};
 		9D60F2211DE52CB100AB0993 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38AFF9F17D376CA35A0D5C89 /* Pods-Oishii.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Oishii/Info.plist;
@@ -422,6 +534,7 @@
 		};
 		9D60F2221DE52CB100AB0993 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EE2AD6DD2ABFDFFE33E1D4F /* Pods-Oishii.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Oishii/Info.plist;
@@ -505,6 +618,7 @@
 				9D60F2221DE52CB100AB0993 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D60F2231DE52CB100AB0993 /* Build configuration list for PBXNativeTarget "OishiiTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +627,7 @@
 				9D60F2251DE52CB100AB0993 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D60F2261DE52CB100AB0993 /* Build configuration list for PBXNativeTarget "OishiiUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +636,7 @@
 				9D60F2281DE52CB100AB0993 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
