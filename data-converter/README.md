@@ -9,5 +9,5 @@ npm install
 node app.js
 ```
 
-Your file will be saved!
+Your file will be converted and saved!
 
