@@ -1,0 +1,14 @@
+{
+  "name": "data-converter",
+  "version": "1.0.0",
+  "description": "Converts our recipes csv file to a json file",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Benio-chan",
+  "license": "ISC",
+  "dependencies": {
+    "csvtojson": "^1.0.3"
+  }
+}
