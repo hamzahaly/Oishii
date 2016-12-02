@@ -6,40 +6,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="mUz-o2-zUp">
-            <objects>
-                <viewController id="VWa-rO-JSc" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vZ7-q3-0cZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="zrZ-sU-xPX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="L8D-h4-v4h">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Vge-jX-Hgr">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="EtG-GE-soT">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JNV-Ls-wsq">
-                                <rect key="frame" x="288" y="7" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Settings"/>
-                                <connections>
-                                    <segue destination="Zb3-cG-kis" kind="popoverPresentation" popoverAnchorView="JNV-Ls-wsq" id="Uld-v0-Wta">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FEU-A3-CVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1313" y="-625"/>
-        </scene>
         <!--Recipe View Controller-->
         <scene sceneID="r48-ri-2UO">
             <objects>
@@ -148,9 +114,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="iZb-PO-EYL" kind="relationship" relationship="viewControllers" id="2pZ-F5-luT"/>
-                        <segue destination="LHc-fB-FWe" kind="relationship" relationship="viewControllers" id="nHh-lW-RwE"/>
-                        <segue destination="13d-vW-kQ7" kind="relationship" relationship="viewControllers" id="b1m-Lh-dvK"/>
-                        <segue destination="bzS-Mu-A37" kind="relationship" relationship="viewControllers" id="glb-1h-JDe"/>
+                        <segue destination="bzS-Mu-A37" kind="relationship" relationship="viewControllers" id="EJ6-hZ-UYM"/>
+                        <segue destination="13d-vW-kQ7" kind="relationship" relationship="viewControllers" id="CfI-2p-dfL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3he-be-Lkf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -176,25 +141,6 @@
             </objects>
             <point key="canvasLocation" x="317" y="-1332"/>
         </scene>
-        <!--Item 2-->
-        <scene sceneID="XBa-Cg-JXx">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LHc-fB-FWe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Pt4-LO-E3v"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JOV-OR-1dh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="VWa-rO-JSc" kind="relationship" relationship="rootViewController" id="iaK-8H-zgO"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YUI-eG-EPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="317" y="-625"/>
-        </scene>
         <!--Favorites-->
         <scene sceneID="c2G-Wx-OUg">
             <objects>
@@ -204,7 +150,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="Yce-49-vS4">
-                            <rect key="frame" x="0.0" y="64" width="150" height="44"/>
+                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
@@ -293,7 +239,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="jIf-El-9db">
-                            <rect key="frame" x="0.0" y="64" width="150" height="44"/>
+                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
@@ -385,7 +331,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sij-aU-RSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="317" y="83"/>
+            <point key="canvasLocation" x="316" y="47"/>
         </scene>
         <!--Recipes-->
         <scene sceneID="iVd-ES-Iv7">
@@ -404,11 +350,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EjL-Vb-Iq0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="317" y="828"/>
+            <point key="canvasLocation" x="226" y="864"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="df0-gs-qBU"/>
         <segue reference="1JD-qk-D5f"/>
+        <segue reference="2hK-pe-Ujo"/>
     </inferredMetricsTieBreakers>
 </document>
