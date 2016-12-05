@@ -12,6 +12,9 @@ class RecipesTableViewController: UITableViewController {
     
     let model = ["Sushi", "Noodles", "Rice Dishes", "Deserts", "Teriyaki"]
 
+    
+    let desc = ["Sushi", "Noodles", "Rice Dishes", "Deserts", "Teriyaki"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,9 +44,12 @@ class RecipesTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipesCell", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipesCell", for: indexPath) as! RecipesTableViewCell
+        cell.recipeName.text = model[indexPath.row]
+        cell.recipeDesc.text = desc[indexPath.row]
+        
          //Configure the cell...
+        
 
         return cell
     }

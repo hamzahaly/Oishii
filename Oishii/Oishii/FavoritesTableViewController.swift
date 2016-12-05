@@ -11,6 +11,7 @@ import UIKit
 class FavoritesTableViewController: UITableViewController {
     
     let model = ["Sushi", "Noodles"]
+    let desc = ["Sushi", "Noodles"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +42,9 @@ class FavoritesTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesCell", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesCell", for: indexPath) as! FavoritesTableViewCell
+        cell.recipeName.text = model[indexPath.row]
+        cell.recipeDesc.text = desc[indexPath.row]
         // Configure the cell...
 
         return cell
