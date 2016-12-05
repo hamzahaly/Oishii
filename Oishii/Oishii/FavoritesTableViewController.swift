@@ -47,7 +47,14 @@ class FavoritesTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "favoritesToRecipe", sender: self)
+    }
  
+    @IBAction func goToSettings(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "favoritesToSettings", sender: self)
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -93,5 +100,16 @@ class FavoritesTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "favoritesToRecipe" {
+            let recipeViewController = segue.destination as! RecipeViewController
+            //Variables go here
+        } else if segue.identifier == "favoritesToSettings" {
+            let settingsViewController = segue.destination as! SettingsViewController
+            //Variables go here
+            settingsViewController.sourceScreen = "Favorites"
+        }
+        
+    }
 }

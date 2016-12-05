@@ -47,6 +47,14 @@ class RecipesTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "recipesToRecipe", sender: self)
+    }
+    
+    @IBAction func goToSettings(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "recipesToSettings", sender: self)
+    }
  
 
     /*
@@ -93,5 +101,17 @@ class RecipesTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "recipesToRecipe" {
+            let recipeViewController = segue.destination as! RecipeViewController
+            //Variables go here
+        } else if segue.identifier == "recipesToSettings" {
+            let settingsViewController = segue.destination as! SettingsViewController
+            //Variables go here
+            settingsViewController.sourceScreen = "Recipes"
+        }
+
+    }
 
 }
