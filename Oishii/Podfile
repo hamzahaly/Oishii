@@ -10,6 +10,8 @@ target 'Oishii' do
 
   # Pods for Oishii
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
 
 #  target 'OishiiTests' do
 #    inherit! :search_paths

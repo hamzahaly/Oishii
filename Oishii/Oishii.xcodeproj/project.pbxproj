@@ -23,6 +23,7 @@
 		9D60F21C1DE52CB100AB0993 /* OishiiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60F21B1DE52CB100AB0993 /* OishiiUITests.swift */; };
 		9D6945B01DF11B8C00997226 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D6945AF1DF11B8C00997226 /* GoogleService-Info.plist */; };
 		9D9850411DEE776700244135 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9850401DEE776700244135 /* SettingsViewController.swift */; };
+		E9B6B7891DF4FA7E00238C1A /* YummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B6B7881DF4FA7E00238C1A /* YummyData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		9D60F21D1DE52CB100AB0993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D6945AF1DF11B8C00997226 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9D9850401DEE776700244135 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E9B6B7881DF4FA7E00238C1A /* YummyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YummyData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				9D60F2021DE52CB100AB0993 /* Assets.xcassets */,
 				9D60F2041DE52CB100AB0993 /* LaunchScreen.storyboard */,
 				9D60F2071DE52CB100AB0993 /* Info.plist */,
+				E9B6B7881DF4FA7E00238C1A /* YummyData.swift */,
 			);
 			path = Oishii;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				9D60F1FC1DE52CB100AB0993 /* AppDelegate.swift in Sources */,
 				9D03869E1DEE3F0600E10558 /* RecipesTableViewCell.swift in Sources */,
 				9D0386981DEE355300E10558 /* FavoritesTableViewController.swift in Sources */,
+				E9B6B7891DF4FA7E00238C1A /* YummyData.swift in Sources */,
 				496B3B601DEBF4AE00E6359F /* RecipesTableViewController.swift in Sources */,
 				9D03869A1DEE356900E10558 /* HomeViewController.swift in Sources */,
 				9D03869C1DEE3E6500E10558 /* FavoritesTableViewCell.swift in Sources */,
