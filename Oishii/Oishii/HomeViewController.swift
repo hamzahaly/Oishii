@@ -9,7 +9,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,5 +31,16 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func goToSettings(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "homeToSettings", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "homeToSettings" {
+            let settingsViewController = segue.destination as! SettingsViewController
+            //Variables go here
+            settingsViewController.sourceScreen = "Home"
+        }
+        
+    }
 }

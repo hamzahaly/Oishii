@@ -9,7 +9,8 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+    var sourceScreen = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +22,16 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func goToHome(_ sender: UIButton) {
+        if sourceScreen == "Home" {
+            performSegue(withIdentifier: "settingsToHome", sender: self)
+        } else if sourceScreen == "Recipes" {
+            performSegue(withIdentifier: "settingsToRecipes", sender: self)
+        } else if sourceScreen == "Favorites" {
+            performSegue(withIdentifier: "settingsToFavorites", sender: self)
+        }
+        
+    }
 
     /*
     // MARK: - Navigation
@@ -32,4 +43,15 @@ class SettingsViewController: UIViewController {
     }
     */
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "settingsToHome" {
+            let homeViewController = segue.destination as! HomeViewController
+            //Variables go here
+        } else if segue.identifier == "settingsToRecipes" {
+            let recipesViewController = segue.destination as! RecipesTableViewController
+            //Variables go here
+        } else if segue.identifier == "settingsToFavorites" {
+            let favoritesViewController = segue.destination as! FavoritesTableViewController
+        }
+    }
 }
