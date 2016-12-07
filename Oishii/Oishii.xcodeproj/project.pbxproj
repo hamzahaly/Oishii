@@ -70,6 +70,7 @@
 		9D60F21D1DE52CB100AB0993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D6945AF1DF11B8C00997226 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9D9850401DEE776700244135 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E950D2251DF63CF30031931C /* Oishii.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Oishii.entitlements; sourceTree = "<group>"; };
 		E9B6B7881DF4FA7E00238C1A /* YummyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YummyData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +144,7 @@
 		9D60F1FA1DE52CB100AB0993 /* Oishii */ = {
 			isa = PBXGroup;
 			children = (
+				E950D2251DF63CF30031931C /* Oishii.entitlements */,
 				9D60F1FB1DE52CB100AB0993 /* AppDelegate.swift */,
 				9D60F1FD1DE52CB100AB0993 /* ViewController.swift */,
 				9D0386991DEE356900E10558 /* HomeViewController.swift */,
@@ -251,7 +253,13 @@
 				TargetAttributes = {
 					9D60F1F71DE52CB000AB0993 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = J4WKH92G8H;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					9D60F20B1DE52CB100AB0993 = {
 						CreatedOnToolsVersion = 8.0;
@@ -528,6 +536,8 @@
 			baseConfigurationReference = 38AFF9F17D376CA35A0D5C89 /* Pods-Oishii.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Oishii/Oishii.entitlements;
+				DEVELOPMENT_TEAM = J4WKH92G8H;
 				INFOPLIST_FILE = Oishii/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Bentai.Oishii;
@@ -541,6 +551,8 @@
 			baseConfigurationReference = 1EE2AD6DD2ABFDFFE33E1D4F /* Pods-Oishii.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Oishii/Oishii.entitlements;
+				DEVELOPMENT_TEAM = J4WKH92G8H;
 				INFOPLIST_FILE = Oishii/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Bentai.Oishii;
