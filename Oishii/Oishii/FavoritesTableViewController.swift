@@ -15,10 +15,6 @@ class FavoritesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSLog("boos")
-        YummyData.shared.ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                NSLog("SHIT\(snapshot.childrenCount)")
-            })
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

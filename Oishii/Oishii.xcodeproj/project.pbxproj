@@ -23,6 +23,7 @@
 		9D60F21C1DE52CB100AB0993 /* OishiiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60F21B1DE52CB100AB0993 /* OishiiUITests.swift */; };
 		9D6945B01DF11B8C00997226 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D6945AF1DF11B8C00997226 /* GoogleService-Info.plist */; };
 		9D9850411DEE776700244135 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9850401DEE776700244135 /* SettingsViewController.swift */; };
+		9DD58F811DF79E5D00C625DA /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD58F801DF79E5D00C625DA /* Recipe.swift */; };
 		E9B6B7891DF4FA7E00238C1A /* YummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B6B7881DF4FA7E00238C1A /* YummyData.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		9D60F21D1DE52CB100AB0993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D6945AF1DF11B8C00997226 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9D9850401DEE776700244135 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9DD58F801DF79E5D00C625DA /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		E950D2251DF63CF30031931C /* Oishii.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Oishii.entitlements; sourceTree = "<group>"; };
 		E9B6B7881DF4FA7E00238C1A /* YummyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YummyData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +156,7 @@
 				496B3B5F1DEBF4AE00E6359F /* RecipesTableViewController.swift */,
 				9D03869D1DEE3F0600E10558 /* RecipesTableViewCell.swift */,
 				496B3B631DEBF52800E6359F /* RecipeViewController.swift */,
+				9DD58F801DF79E5D00C625DA /* Recipe.swift */,
 				9D6945AF1DF11B8C00997226 /* GoogleService-Info.plist */,
 				9D60F1FF1DE52CB100AB0993 /* Main.storyboard */,
 				9D60F2021DE52CB100AB0993 /* Assets.xcassets */,
@@ -384,6 +387,7 @@
 				9D03869A1DEE356900E10558 /* HomeViewController.swift in Sources */,
 				9D03869C1DEE3E6500E10558 /* FavoritesTableViewCell.swift in Sources */,
 				9D9850411DEE776700244135 /* SettingsViewController.swift in Sources */,
+				9DD58F811DF79E5D00C625DA /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
