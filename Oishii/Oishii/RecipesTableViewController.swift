@@ -2,7 +2,7 @@
 //  RecipesTableViewController.swift
 //  Oishii
 //
-//  Created by studentuser on 11/27/16.
+//  Created by Bentai on 11/27/16.
 //  Copyright © 2016 Bentai. All rights reserved.
 //
 
@@ -11,6 +11,10 @@ import UIKit
 class RecipesTableViewController: UITableViewController {
     
     var selectedRecipe : Recipe = Recipe()
+    
+    var filteredRecipes = YummyData.shared.recipes
+    
+    @IBOutlet weak var searchbar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +45,7 @@ class RecipesTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipesCell", for: indexPath) as! RecipesTableViewCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "RecipesCell", for: indexPath) as! RecipesTableViewCell
         cell.recipeName.text = YummyData.shared.recipes[indexPath.row].name
         cell.recipeDesc.text = YummyData.shared.recipes[indexPath.row].shortDescription
         
@@ -72,5 +76,8 @@ class RecipesTableViewController: UITableViewController {
         }
 
     }
-
+    
+    func filterContentForSearchText(SearchText: String) {
+        
+    }
 }

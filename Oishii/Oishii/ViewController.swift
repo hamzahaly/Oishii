@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Oishii
 //
-//  Created by iGuest on 11/22/16.
+//  Created by Bentai on 11/22/16.
 //  Copyright © 2016 Bentai. All rights reserved.
 //
 
