@@ -45,7 +45,7 @@ class RecipesTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipesCell", for: indexPath) as! RecipesTableViewCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "RecipesCell", for: indexPath) as! RecipesTableViewCell
         cell.recipeName.text = YummyData.shared.recipes[indexPath.row].name
         cell.recipeDesc.text = YummyData.shared.recipes[indexPath.row].shortDescription
         

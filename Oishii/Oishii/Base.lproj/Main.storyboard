@@ -37,7 +37,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DIF-OZ-Zfj">
-                                <frame key="frameInset" minX="86.67%" minY="10.64%" width="10.93%" height="6.00%"/>
+                                <frame key="frameInset" minX="86.67%" minY="10.50%" width="10.93%" height="6.00%"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -67,7 +67,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Editor's Choice" id="t8E-j6-qYP">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="pME-AK-yIf">
+                        <barButtonItem key="rightBarButtonItem" id="pME-AK-yIf">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="t85-tf-MIy">
                                 <rect key="frame" x="288" y="7" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -216,7 +216,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Favorites" id="fe4-Sh-5kE">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="1Qy-2a-6nO">
+                        <barButtonItem key="rightBarButtonItem" id="1Qy-2a-6nO">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="S4e-Lf-SCi">
                                 <rect key="frame" x="288" y="7" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -273,7 +273,7 @@
                                 <rect key="frame" x="0.0" y="136" width="375" height="83"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JVY-vt-jap" id="UMB-Fa-4cy">
-                                    <frame key="frameInset" width="375" height="83"/>
+                                    <frame key="frameInset" width="375" height="82"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vEg-7d-bLy">
@@ -308,7 +308,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Recipes" id="KMn-Da-Lva">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="YbD-61-wYP">
+                        <barButtonItem key="rightBarButtonItem" id="YbD-61-wYP">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GcM-DI-ctJ">
                                 <rect key="frame" x="288" y="7" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -389,7 +389,7 @@
         <image name="recipes-sm" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="df0-gs-qBU"/>
-        <segue reference="aJD-Pa-dVO"/>
+        <segue reference="2hK-pe-Ujo"/>
+        <segue reference="1JD-qk-D5f"/>
     </inferredMetricsTieBreakers>
 </document>

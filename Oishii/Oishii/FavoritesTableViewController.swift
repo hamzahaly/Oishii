@@ -40,7 +40,7 @@ class FavoritesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesCell", for: indexPath) as! FavoritesTableViewCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "FavoritesCell", for: indexPath) as! FavoritesTableViewCell
         cell.recipeName.text = YummyData.shared.favoriteRecipes[indexPath.row].name
         cell.recipeDesc.text = YummyData.shared.favoriteRecipes[indexPath.row].shortDescription
         // Configure the cell...
