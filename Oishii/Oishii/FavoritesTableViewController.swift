@@ -15,13 +15,16 @@ class FavoritesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+        NSLog("Test")
     }
 
     // MARK: - Table view data source
@@ -33,26 +36,13 @@ class FavoritesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return countNumberOfFavoites()
+        return YummyData.shared.favoriteRecipes.count
     }
-    
-    func countNumberOfFavoites() -> Int {
-        var count : Int = 0
-        for recipe in YummyData.shared.recipes {
-            if recipe.favorite {
-                count+=1
-            }
-        }
-        return count
-    }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesCell", for: indexPath) as! FavoritesTableViewCell
-        if YummyData.shared.recipes[indexPath.row].favorite == true {
-            cell.recipeName.text = YummyData.shared.recipes[indexPath.row].name
-            cell.recipeDesc.text = YummyData.shared.recipes[indexPath.row].shortDescription
-        }
+        cell.recipeName.text = YummyData.shared.favoriteRecipes[indexPath.row].name
+        cell.recipeDesc.text = YummyData.shared.favoriteRecipes[indexPath.row].shortDescription
         // Configure the cell...
         
         return cell

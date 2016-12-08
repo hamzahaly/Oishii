@@ -29,14 +29,22 @@ class RecipeViewController: UIViewController {
     //Action
     func favoriteRecipe() {
         var recipeCount : Int = 0
-        for recipe in YummyData.shared.recipes {
+        var foundRecipe = false
+        for recipe in YummyData.shared.favoriteRecipes {
             if selectedRecipe.recipeid == recipe.recipeid {
+                foundRecipe = true
                 break
             }
             recipeCount+=1
         }
-        YummyData.shared.recipes[recipeCount].favorite = true
-        NSLog("\(selectedRecipe.name) # \(recipeCount) was favorited/unfavorited")
+        if foundRecipe { //You want to unfavorite
+            YummyData.shared.favoriteRecipes.remove(at: recipeCount)
+            NSLog("\(selectedRecipe.name) # \(recipeCount) was unfavorited")
+        } else { //You want to favorite
+            YummyData.shared.favoriteRecipes.append(selectedRecipe)
+            NSLog("\(selectedRecipe.name) # \(recipeCount) was favorited")
+        }
+        
         
     }
 

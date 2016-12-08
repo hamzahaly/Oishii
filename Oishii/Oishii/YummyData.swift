@@ -15,6 +15,7 @@ class YummyData: NSObject {
     static let path = Bundle.main.path(forResource: "data", ofType: "txt")!
     var ref: FIRDatabaseReference!
     var recipes: [Recipe] = [Recipe]()
+    var favoriteRecipes: [Recipe] = [Recipe]()
     
     func setup(){
         FIRApp.configure()
