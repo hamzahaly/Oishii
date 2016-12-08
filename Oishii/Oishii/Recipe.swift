@@ -17,5 +17,5 @@ class Recipe: NSObject {
     var procedure: [String] = []
     var categories: [String] = []
     var editors: Bool = false
-    
+    var favorite: Bool = false
 }
