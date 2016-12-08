@@ -12,6 +12,10 @@ class RecipesTableViewController: UITableViewController {
     
     var selectedRecipe : Recipe = Recipe()
     
+    var filteredRecipes = YummyData.shared.recipes
+    
+    @IBOutlet weak var searchbar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -72,5 +76,8 @@ class RecipesTableViewController: UITableViewController {
         }
 
     }
-
+    
+    func filterContentForSearchText(SearchText: String) {
+        
+    }
 }
