@@ -37,13 +37,14 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DIF-OZ-Zfj">
-                                <frame key="frameInset" minX="281" minY="482" width="52" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <frame key="frameInset" minX="86.93%" minY="10.79%" width="10.67%" height="6.00%"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="favoriteButton" destination="DIF-OZ-Zfj" id="Lom-LO-cXK"/>
                         <outlet property="recipeLongDescription" destination="tgi-Mt-Lfd" id="rVx-PZ-kam"/>
                         <outlet property="recipeName" destination="OzQ-J7-l57" id="Xhd-2x-jXo"/>
                     </connections>

@@ -10,19 +10,13 @@ import UIKit
 
 class FavoritesTableViewController: UITableViewController {
     
-    let model = ["Sushi", "Noodles"]
-    let desc = ["Sushi", "Noodles"]
     var recipeList = YummyData.shared.recipes
     var selectedRecipe : Recipe = Recipe()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,7 +54,7 @@ class FavoritesTableViewController: UITableViewController {
             cell.recipeDesc.text = YummyData.shared.recipes[indexPath.row].shortDescription
         }
         // Configure the cell...
-
+        
         return cell
     }
     
