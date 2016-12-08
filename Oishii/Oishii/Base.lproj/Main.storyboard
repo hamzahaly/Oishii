@@ -15,29 +15,29 @@
                         <viewControllerLayoutGuide type="bottom" id="0tL-pH-NNR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jZg-KO-gE3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="tgi-Mt-Lfd">
-                                <frame key="frameInset" minX="16" minY="126" width="94.71%" height="12.57%"/>
+                                <frame key="frameInset" minX="16" minY="126" width="94.72%" height="12.62%"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="OzQ-J7-l57">
-                                <frame key="frameInset" minX="16" minY="72" width="94.71%" height="9.08%"/>
+                                <frame key="frameInset" minX="16" minY="72" width="94.72%" height="8.89%"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8AX-RW-zCX">
-                                <frame key="frameInset" minX="93" minY="196" width="67.02%" height="33.55%"/>
+                                <frame key="frameInset" minX="93" minY="196" width="66.67%" height="33.33%"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DIF-OZ-Zfj">
-                                <frame key="frameInset" minX="86.67%" minY="10.50%" width="10.93%" height="6.00%"/>
+                                <frame key="frameInset" minX="86.72%" minY="10.33%" width="10.63%" height="5.84%"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -62,7 +62,7 @@
                         <viewControllerLayoutGuide type="bottom" id="zIK-g7-dUm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="O62-6D-gwM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -140,7 +140,7 @@
         <scene sceneID="lqn-6D-Gpe">
             <objects>
                 <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" id="iZb-PO-EYL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="home-sm" id="F9y-Oq-ZFQ"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="F9y-Oq-ZFQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Aro-5e-K0V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -160,11 +160,11 @@
             <objects>
                 <tableViewController storyboardIdentifier="FavoritesController" title="Favorites" id="3NN-Vo-guh" customClass="FavoritesTableViewController" customModule="Oishii" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="83" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Cd-9T-Yst">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="Yce-49-vS4">
-                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="64" width="453" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
@@ -173,10 +173,10 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoritesCell" rowHeight="83" id="jjG-wV-RqP" customClass="FavoritesTableViewCell" customModule="Oishii" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="136" width="375" height="83"/>
+                                <rect key="frame" x="0.0" y="136" width="414" height="83"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jjG-wV-RqP" id="Reb-nj-csL">
-                                    <frame key="frameInset" width="375" height="83"/>
+                                    <frame key="frameInset" width="414" height="82.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IoB-fT-0uK">
@@ -198,7 +198,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQm-hl-8Gm">
-                                            <frame key="frameInset" minY="30.12%" width="7.63%" height="36.15%" maxX="8"/>
+                                            <frame key="frameInset" minY="31.45%" width="7.63%" height="33.87%" maxX="8"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="x"/>
                                         </button>
@@ -218,7 +218,7 @@
                     <navigationItem key="navigationItem" title="Favorites" id="fe4-Sh-5kE">
                         <barButtonItem key="rightBarButtonItem" id="1Qy-2a-6nO">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="S4e-Lf-SCi">
-                                <rect key="frame" x="288" y="7" width="71" height="30"/>
+                                <rect key="frame" x="323" y="7" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Settings"/>
                                 <connections>
@@ -257,11 +257,11 @@
             <objects>
                 <tableViewController storyboardIdentifier="RecipeListController" title="Recipes" id="SMy-rV-05E" customClass="RecipesTableViewController" customModule="Oishii" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="83" sectionHeaderHeight="28" sectionFooterHeight="28" id="EbO-6M-5KY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" text="" id="jIf-El-9db">
-                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="64" width="453" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
@@ -270,10 +270,10 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipesCell" rowHeight="83" id="JVY-vt-jap" customClass="RecipesTableViewCell" customModule="Oishii" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="136" width="375" height="83"/>
+                                <rect key="frame" x="0.0" y="136" width="414" height="83"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JVY-vt-jap" id="UMB-Fa-4cy">
-                                    <frame key="frameInset" width="375" height="82"/>
+                                    <frame key="frameInset" width="414" height="82.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vEg-7d-bLy">
@@ -310,7 +310,7 @@
                     <navigationItem key="navigationItem" title="Recipes" id="KMn-Da-Lva">
                         <barButtonItem key="rightBarButtonItem" id="YbD-61-wYP">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GcM-DI-ctJ">
-                                <rect key="frame" x="288" y="7" width="71" height="30"/>
+                                <rect key="frame" x="323" y="7" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Settings"/>
                                 <connections>
@@ -348,7 +348,7 @@
         <scene sceneID="Drl-zW-VBb">
             <objects>
                 <navigationController title="Favorites" automaticallyAdjustsScrollViewInsets="NO" id="13d-vW-kQ7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" image="heart-sm" id="lS0-OI-X4H"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart" id="lS0-OI-X4H"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BYu-Xz-K0O">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -367,7 +367,7 @@
         <scene sceneID="iVd-ES-Iv7">
             <objects>
                 <navigationController title="Recipes" automaticallyAdjustsScrollViewInsets="NO" id="bzS-Mu-A37" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recipes" image="recipes-sm" id="zk3-uL-kJL"/>
+                    <tabBarItem key="tabBarItem" title="Recipes" image="recipes" id="zk3-uL-kJL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0vS-6M-Oq8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -384,9 +384,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="heart-sm" width="25" height="25"/>
-        <image name="home-sm" width="25" height="25"/>
-        <image name="recipes-sm" width="25" height="25"/>
+        <image name="heart" width="25" height="25"/>
+        <image name="home" width="25" height="25"/>
+        <image name="recipes" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2hK-pe-Ujo"/>
