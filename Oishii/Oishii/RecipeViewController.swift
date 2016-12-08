@@ -9,11 +9,15 @@
 import UIKit
 
 class RecipeViewController: UIViewController {
-
+    var selectedRecipe : Recipe = Recipe()
+    
+    @IBOutlet weak var recipeName: UILabel!
+    @IBOutlet weak var recipeLongDescription: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        recipeName.text = selectedRecipe.name
+        recipeLongDescription.text = selectedRecipe.longDescription
         // Do any additional setup after loading the view.
     }
 
