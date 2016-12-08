@@ -2,7 +2,7 @@
 //  Recipe.swift
 //  Oishii
 //
-//  Created by iGuest on 12/6/16.
+//  Created by Bentai on 12/6/16.
 //  Copyright © 2016 Bentai. All rights reserved.
 //
 
