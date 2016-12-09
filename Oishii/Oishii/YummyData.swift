@@ -12,7 +12,8 @@ import FirebaseDatabase
 
 class YummyData: NSObject {
     static let shared = YummyData()
-    private static let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "questions"
+    private static let editorsSave = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "editors"
+    private static let favSave = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "favorites"
     var ref: FIRDatabaseReference!
     var recipes: [Recipe] = [Recipe]()
     var favoriteRecipes: [Recipe] = [Recipe]()
@@ -21,9 +22,10 @@ class YummyData: NSObject {
     func setup(){
         FIRApp.configure()
         ref = FIRDatabase.database().reference()
-        //loadOffline()
+        loadOffline()
+        NSLog("\(editors)")
+        NSLog("\(favoriteRecipes)")
         ref.child("recipes").observeSingleEvent(of: .value, with: { (snapshot) in
-            
             for child in snapshot.children.allObjects as! [FIRDataSnapshot] {
                 let data = child.value as! [String:Any]
                 let recipe = Recipe()
@@ -39,17 +41,28 @@ class YummyData: NSObject {
                     self.editors.append(recipe)
                 }
             }
-            //self.save()
-            NSLog("\(self.recipes)")
+            self.save()
+//            NSLog("\(self.recipes)")
         })
     }
     
     func save(){
-        (self.editors as NSArray).write(toFile: YummyData.filePath, atomically:true)
-        (self.favoriteRecipes as NSArray).write(toFile: YummyData.filePath, atomically:true)
+        if(editors.count > 0){
+            NSKeyedArchiver.archiveRootObject(editors, toFile: YummyData.editorsSave)
+        }
+        if(favoriteRecipes.count > 0){
+            NSKeyedArchiver.archiveRootObject(favoriteRecipes, toFile: YummyData.favSave)
+        }
+//        (self.editors as NSArray).write(toFile: YummyData.editorsSave, atomically:true)
+//        (self.favoriteRecipes as NSArray).write(toFile: YummyData.favSave, atomically:true)
     }
     
     func loadOffline(){
-        editors = NSArray(contentsOfFile:YummyData.filePath) as! [Recipe]
+        if let loadArr: [Recipe] = NSKeyedUnarchiver.unarchiveObject(withFile: YummyData.editorsSave) as? [Recipe] {
+            editors = loadArr
+        }
+        if let loadArr: [Recipe] = NSKeyedUnarchiver.unarchiveObject(withFile: YummyData.favSave) as? [Recipe] {
+            favoriteRecipes = loadArr
+        }
     }
 }
