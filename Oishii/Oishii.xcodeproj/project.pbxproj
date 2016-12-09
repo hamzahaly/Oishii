@@ -14,6 +14,7 @@
 		9D03869A1DEE356900E10558 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0386991DEE356900E10558 /* HomeViewController.swift */; };
 		9D03869C1DEE3E6500E10558 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D03869B1DEE3E6500E10558 /* FavoritesTableViewCell.swift */; };
 		9D03869E1DEE3F0600E10558 /* RecipesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D03869D1DEE3F0600E10558 /* RecipesTableViewCell.swift */; };
+		9D581DE61DFB57FC002FA2B7 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D581DE51DFB57FC002FA2B7 /* SettingsTableViewController.swift */; };
 		9D60F1FC1DE52CB100AB0993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60F1FB1DE52CB100AB0993 /* AppDelegate.swift */; };
 		9D60F1FE1DE52CB100AB0993 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60F1FD1DE52CB100AB0993 /* ViewController.swift */; };
 		9D60F2011DE52CB100AB0993 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D60F1FF1DE52CB100AB0993 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		9D0386991DEE356900E10558 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9D03869B1DEE3E6500E10558 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		9D03869D1DEE3F0600E10558 /* RecipesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesTableViewCell.swift; sourceTree = "<group>"; };
+		9D581DE51DFB57FC002FA2B7 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		9D60F1F81DE52CB100AB0993 /* Oishii.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oishii.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D60F1FB1DE52CB100AB0993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D60F1FD1DE52CB100AB0993 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			children = (
 				E950D2251DF63CF30031931C /* Oishii.entitlements */,
 				9D60F1FB1DE52CB100AB0993 /* AppDelegate.swift */,
+				9D581DE51DFB57FC002FA2B7 /* SettingsTableViewController.swift */,
 				9D60F1FD1DE52CB100AB0993 /* ViewController.swift */,
 				9D0386991DEE356900E10558 /* HomeViewController.swift */,
 				9D9850401DEE776700244135 /* SettingsViewController.swift */,
@@ -385,6 +388,7 @@
 				E9B6B7891DF4FA7E00238C1A /* YummyData.swift in Sources */,
 				496B3B601DEBF4AE00E6359F /* RecipesTableViewController.swift in Sources */,
 				9D03869A1DEE356900E10558 /* HomeViewController.swift in Sources */,
+				9D581DE61DFB57FC002FA2B7 /* SettingsTableViewController.swift in Sources */,
 				9D03869C1DEE3E6500E10558 /* FavoritesTableViewCell.swift in Sources */,
 				9D9850411DEE776700244135 /* SettingsViewController.swift in Sources */,
 				9DD58F811DF79E5D00C625DA /* Recipe.swift in Sources */,
