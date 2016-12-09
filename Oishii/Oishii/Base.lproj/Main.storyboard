@@ -327,7 +327,7 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="Gim-0Q-Uw0" id="Zwd-mV-XDW"/>
+                        <outlet property="searchDisplayController" destination="Gim-0Q-Uw0" id="TAC-7p-oLe"/>
                         <outlet property="searchbar" destination="jIf-El-9db" id="Tt5-g5-1yS"/>
                         <segue destination="3y6-56-dXe" kind="show" identifier="recipesToRecipe" id="aJD-Pa-dVO"/>
                     </connections>
@@ -389,7 +389,7 @@
         <image name="recipes" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2hK-pe-Ujo"/>
-        <segue reference="1JD-qk-D5f"/>
+        <segue reference="aJD-Pa-dVO"/>
+        <segue reference="df0-gs-qBU"/>
     </inferredMetricsTieBreakers>
 </document>

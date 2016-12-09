@@ -8,17 +8,26 @@
 
 import UIKit
 
-class RecipesTableViewController: UITableViewController {
+protocol CustomSearchControllerDelegate {
+    func didTapOnSearchButton(searchString : String)
+    
+    func didTapOnCancelButton()
+}
+
+class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     
     var selectedRecipe : Recipe = Recipe()
+    var searchArray : [Recipe] = [Recipe]()
+    var sentSearch = false
     
-    var filteredRecipes = YummyData.shared.recipes
+    var customDelegate : CustomSearchControllerDelegate!
     
     @IBOutlet weak var searchbar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.searchbar.delegate = self
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -40,19 +49,64 @@ class RecipesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return YummyData.shared.recipes.count
+        if sentSearch {
+            return searchArray.count
+        } else {
+            return YummyData.shared.recipes.count
+        }
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "RecipesCell", for: indexPath) as! RecipesTableViewCell
-        cell.recipeName.text = YummyData.shared.recipes[indexPath.row].name
-        cell.recipeDesc.text = YummyData.shared.recipes[indexPath.row].shortDescription
+        if sentSearch {
+            cell.recipeName.text = searchArray[indexPath.row].name
+            cell.recipeDesc.text = searchArray[indexPath.row].shortDescription
+        } else {
+            cell.recipeName.text = YummyData.shared.recipes[indexPath.row].name
+            cell.recipeDesc.text = YummyData.shared.recipes[indexPath.row].shortDescription
+
+        }
+        sentSearch = false
         
          //Configure the cell...
         
 
         return cell
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchbar.resignFirstResponder()
+        NSLog(searchBar.text!)
+        if searchBar.text != nil {
+            self.didTapOnSearchButton(searchString: searchBar.text!)
+        } else {
+            NSLog("String is nil!")
+        }
+        
+    }
+    
+    func didTapOnSearchButton(searchString : String) {
+        NSLog("INSIDE FUNCTION!")
+        let searchString : String = searchString
+        searchArray.removeAll()
+        for recipe in YummyData.shared.recipes {
+            if recipe.name.contains(searchString) {
+                searchArray.append(recipe)
+            }
+        }
+        NSLog(String(searchArray.count))
+        sentSearch = true
+        self.tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchbar.resignFirstResponder()
+        self.didTapOnCancelButton()
+    }
+    
+    func didTapOnCancelButton() {
+        self.tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -77,7 +131,7 @@ class RecipesTableViewController: UITableViewController {
 
     }
     
-    func filterContentForSearchText(SearchText: String) {
+    func updateSearchResults(searchController: UISearchController) {
         
     }
 }
