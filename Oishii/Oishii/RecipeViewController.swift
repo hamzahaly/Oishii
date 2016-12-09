@@ -11,6 +11,7 @@ import UIKit
 class RecipeViewController: UIViewController {
     var selectedRecipe : Recipe = Recipe()
     
+    @IBOutlet weak var favoriteIcon: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeLongDescription: UILabel!
     
@@ -40,9 +41,11 @@ class RecipeViewController: UIViewController {
         if foundRecipe { //You want to unfavorite
             YummyData.shared.favoriteRecipes.remove(at: recipeCount)
             NSLog("\(selectedRecipe.name) # \(recipeCount) was unfavorited")
+            favoriteIcon.image = UIImage(named: "heart")
         } else { //You want to favorite
             YummyData.shared.favoriteRecipes.append(selectedRecipe)
             NSLog("\(selectedRecipe.name) # \(recipeCount) was favorited")
+            favoriteIcon.image = UIImage(named: "heart-filled")
         }
         
         
