@@ -53,20 +53,11 @@ class FavoritesTableViewController: UITableViewController {
         performSegue(withIdentifier: "favoritesToRecipe", sender: self)
     }
     
- 
-    @IBAction func goToSettings(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "favoritesToSettings", sender: self)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "favoritesToRecipe" {
             let recipeViewController = segue.destination as! RecipeViewController
             recipeViewController.selectedRecipe = selectedRecipe
             //Variables go here
-        } else if segue.identifier == "favoritesToSettings" {
-            let settingsViewController = segue.destination as! SettingsViewController
-            //Variables go here
-            settingsViewController.sourceScreen = "Favorites"
         }
         
     }

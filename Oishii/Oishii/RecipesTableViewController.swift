@@ -139,19 +139,11 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
         performSegue(withIdentifier: "recipesToRecipe", sender: self)
     }
     
-    @IBAction func goToSettings(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "recipesToSettings", sender: self)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "recipesToRecipe" {
             let recipeViewController = segue.destination as! RecipeViewController
             recipeViewController.selectedRecipe = selectedRecipe
             //Variables go here
-        } else if segue.identifier == "recipesToSettings" {
-            let settingsViewController = segue.destination as! SettingsViewController
-            //Variables go here
-            settingsViewController.sourceScreen = "Recipes"
         }
 
     }
