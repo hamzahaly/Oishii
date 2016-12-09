@@ -16,6 +16,7 @@ class YummyData: NSObject {
     var ref: FIRDatabaseReference!
     var recipes: [Recipe] = [Recipe]()
     var favoriteRecipes: [Recipe] = [Recipe]()
+    var editors: [Recipe] = [Recipe]()
     
     func setup(){
         FIRApp.configure()
@@ -33,6 +34,9 @@ class YummyData: NSObject {
                 recipe.categories = data["categories"] as! [String]
                 recipe.editors = data["editors"] as! Bool
                 self.recipes.append(recipe)
+                if(recipe.editors){
+                    self.editors.append(recipe)
+                }
             }
             print("\(self.recipes)")
         })
