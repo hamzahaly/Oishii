@@ -12,6 +12,10 @@ target 'Oishii' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  
+  platform :ios, '8.0'
+  use_frameworks!
+  pod 'SDWebImage', '~>3.8'
 
 #  target 'OishiiTests' do
 #    inherit! :search_paths
