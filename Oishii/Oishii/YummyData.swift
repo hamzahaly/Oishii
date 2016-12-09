@@ -26,8 +26,8 @@ class YummyData: NSObject {
                 let recipe = Recipe()
                 recipe.name = data["name"] as! String
                 recipe.recipeid = data["recipeid"] as! String
-//                recipe.shortDescription = data["short_description"] as! String
-//                recipe.longDescription = data["long_description"] as! String
+                recipe.shortDescription = data["short_description"] as! String
+                recipe.longDescription = data["long_description"] as! String
                 recipe.ingredients = data["ingredients"] as! [String]
                 recipe.procedure = data["procedure"] as! [String]
                 recipe.categories = data["categories"] as! [String]
