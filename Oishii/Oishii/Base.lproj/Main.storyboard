@@ -29,18 +29,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="OzQ-J7-l57">
-                                <rect key="frame" x="16" y="72" width="340" height="52"/>
+                                <rect key="frame" x="16" y="72" width="280" height="52"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8AX-RW-zCX">
-                                <rect key="frame" x="93" y="196" width="188" height="155"/>
+                                <rect key="frame" x="93" y="224" width="188" height="155"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DIF-OZ-Zfj">
-                                <rect key="frame" x="325" y="68" width="40" height="39"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="DIF-OZ-Zfj">
+                                <rect key="frame" x="304" y="79" width="40" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -48,13 +48,14 @@
                     </view>
                     <connections>
                         <outlet property="favoriteButton" destination="DIF-OZ-Zfj" id="Lom-LO-cXK"/>
+                        <outlet property="favoriteIcon" destination="DIF-OZ-Zfj" id="HKr-p0-zYE"/>
                         <outlet property="recipeLongDescription" destination="tgi-Mt-Lfd" id="rVx-PZ-kam"/>
                         <outlet property="recipeName" destination="OzQ-J7-l57" id="Xhd-2x-jXo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmW-w5-H5F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2352.8000000000002" y="407.94602698650675"/>
+            <point key="canvasLocation" x="2352.8000000000002" y="407.0464767616192"/>
         </scene>
         <!--Home-->
         <scene sceneID="sKr-D0-PaR">
@@ -106,7 +107,7 @@
                 <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" id="iZb-PO-EYL" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="home" id="F9y-Oq-ZFQ"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Aro-5e-K0V">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Aro-5e-K0V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -162,7 +163,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQm-hl-8Gm">
-                                            <rect key="frame" x="338" y="25" width="28" height="28"/>
+                                            <rect key="frame" x="337" y="23" width="28" height="28"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="x"/>
                                         </button>
