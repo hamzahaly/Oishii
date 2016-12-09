@@ -11,7 +11,6 @@ import UIKit
 protocol CustomSearchControllerDelegate {
     func didTapOnSearchButton(searchString : String)
     
-    func didTapOnCancelButton()
 }
 
 class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
@@ -20,6 +19,7 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     var searchArray : [Recipe] = [Recipe]()
     var sentSearch = false
     
+
     var customDelegate : CustomSearchControllerDelegate!
     
     @IBOutlet weak var searchbar: UISearchBar!
@@ -27,6 +27,8 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchbar.delegate = self
+        self.searchbar.enablesReturnKeyAutomatically = false
+        self.searchbar.showsCancelButton = true
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -68,9 +70,6 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
 
         }
         sentSearch = false
-        
-         //Configure the cell...
-        
 
         return cell
     }
@@ -83,39 +82,61 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
         } else {
             NSLog("String is nil!")
         }
-        
     }
     
     func didTapOnSearchButton(searchString : String) {
-        NSLog("INSIDE FUNCTION!")
-        let searchString : String = searchString
-        searchArray.removeAll()
-        for recipe in YummyData.shared.recipes {
-            if recipe.name.contains(searchString) {
-                searchArray.append(recipe)
+        if searchString.characters.count == 1 {
+            searchArray.removeAll()
+            displayCharacterCountErrorMessage()
+        } else if searchString != "" {
+            let searchString : String = searchString.lowercased()
+            searchArray.removeAll()
+            for recipe in YummyData.shared.recipes {
+                if recipe.name.lowercased().contains(searchString) {
+                    searchArray.append(recipe)
+                }
+            }
+            NSLog(String(searchArray.count))
+            if searchArray.count > 0 {
+                sentSearch = true
+                
+            } else {
+                displayNoResultsErrorMessage()
             }
         }
-        NSLog(String(searchArray.count))
-        sentSearch = true
+        if searchString == "" {
+            searchArray.removeAll()
+        }
         self.tableView.reloadData()
+    }
+    
+    func displayCharacterCountErrorMessage() {
+        let alert = UIAlertController(title: "Search Error!", message: "Please enter more than 1 character when searching", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func displayNoResultsErrorMessage() {
+        let alert = UIAlertController(title: "No Results", message: "Please try searching again", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchbar.resignFirstResponder()
-        self.didTapOnCancelButton()
-    }
-    
-    func didTapOnCancelButton() {
+        searchbar.text = ""
+        searchArray.removeAll()
         self.tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedRecipe = YummyData.shared.recipes[indexPath.row]
+        if searchArray.count == 0 {
+            selectedRecipe = YummyData.shared.recipes[indexPath.row]
+        } else {
+            NSLog(String(searchArray.count))
+            selectedRecipe = searchArray[indexPath.row]
+        }
         performSegue(withIdentifier: "recipesToRecipe", sender: self)
-    }
-    
-    @IBAction func goToSettings(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "recipesToSettings", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -123,15 +144,7 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
             let recipeViewController = segue.destination as! RecipeViewController
             recipeViewController.selectedRecipe = selectedRecipe
             //Variables go here
-        } else if segue.identifier == "recipesToSettings" {
-            let settingsViewController = segue.destination as! SettingsViewController
-            //Variables go here
-            settingsViewController.sourceScreen = "Recipes"
         }
 
-    }
-    
-    func updateSearchResults(searchController: UISearchController) {
-        
     }
 }
