@@ -39,7 +39,7 @@ class YummyData: NSObject {
                     self.editors.append(recipe)
                 }
             }
-            self.save()
+            //self.save()
             NSLog("\(self.recipes)")
         })
     }
