@@ -24,7 +24,21 @@ class RecipeViewController: UIViewController {
         super.viewDidLoad()
         recipeName.text = selectedRecipe.name
         recipeLongDescription.text = selectedRecipe.longDescription
+        if recipeInFavorites() {
+            favoriteIcon.image = UIImage(named: "heart-filled")
+        } else {
+            favoriteIcon.image = UIImage(named: "heart")
+        }
         // Do any additional setup after loading the view.
+    }
+    
+    func recipeInFavorites() -> Bool {
+        for recipe in YummyData.shared.favoriteRecipes {
+            if selectedRecipe.recipeid == recipe.recipeid {
+                return true
+            }
+        }
+        return false
     }
     
     //Action

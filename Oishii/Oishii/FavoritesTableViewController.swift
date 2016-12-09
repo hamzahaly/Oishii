@@ -8,13 +8,21 @@
 
 import UIKit
 
-class FavoritesTableViewController: UITableViewController {
+class FavoritesTableViewController: UITableViewController, UISearchBarDelegate {
     
     var recipeList = YummyData.shared.recipes
     var selectedRecipe : Recipe = Recipe()
+    var filteredRecipes : [Recipe] = [Recipe]()
+    var sentSearch = false
+    var loopCounter = 0
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.searchBar.delegate = self
+        self.searchBar.enablesReturnKeyAutomatically = false
+        self.searchBar.showsCancelButton = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,7 +31,9 @@ class FavoritesTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tableView.reloadData()
+        if searchBar.text == "" {
+            self.tableView.reloadData()
+        }
         NSLog("Test")
     }
 
@@ -36,20 +46,94 @@ class FavoritesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return YummyData.shared.favoriteRecipes.count
+        if sentSearch {
+            return filteredRecipes.count
+        } else {
+            return YummyData.shared.favoriteRecipes.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "FavoritesCell", for: indexPath) as! FavoritesTableViewCell
-        cell.recipeName.text = YummyData.shared.favoriteRecipes[indexPath.row].name
-        cell.recipeDesc.text = YummyData.shared.favoriteRecipes[indexPath.row].shortDescription
-        // Configure the cell...
+        
+        if sentSearch {
+            cell.recipeName.text = filteredRecipes[indexPath.row].name
+            cell.recipeDesc.text = filteredRecipes[indexPath.row].shortDescription
+        } else {
+            cell.recipeName.text = YummyData.shared.favoriteRecipes[indexPath.row].name
+            cell.recipeDesc.text = YummyData.shared.favoriteRecipes[indexPath.row].shortDescription
+        }
+        
+        if loopCounter == filteredRecipes.count {
+            sentSearch = false
+            loopCounter = 0
+        }
+        sentSearch = false
         
         return cell
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        NSLog(searchBar.text!)
+        if searchBar.text != nil {
+            self.didTapOnSearchButton(searchString: searchBar.text!)
+        } else {
+            NSLog("String is nil!")
+        }
+    }
+    
+    func didTapOnSearchButton(searchString : String) {
+        if searchString.characters.count == 1 {
+            filteredRecipes.removeAll()
+            displayCharacterCountErrorMessage()
+        } else if searchString != "" {
+            let searchString : String = searchString.lowercased()
+            filteredRecipes.removeAll()
+            for recipe in YummyData.shared.favoriteRecipes {
+                if recipe.name.lowercased().contains(searchString) {
+                    filteredRecipes.append(recipe)
+                }
+            }
+            NSLog(String(filteredRecipes.count))
+            if filteredRecipes.count > 0 {
+                sentSearch = true
+            } else {
+                displayNoResultsErrorMessage()
+            }
+        }
+        if searchString == "" {
+            filteredRecipes.removeAll()
+        }
+        self.tableView.reloadData()
+    }
+    
+    func displayCharacterCountErrorMessage() {
+        let alert = UIAlertController(title: "Search Error!", message: "Please enter more than 1 character when searching", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func displayNoResultsErrorMessage() {
+        let alert = UIAlertController(title: "No Results", message: "Please try searching again", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.text = ""
+        filteredRecipes.removeAll()
+        self.tableView.reloadData()
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedRecipe = YummyData.shared.recipes[indexPath.row]
+        if filteredRecipes.count == 0 {
+            selectedRecipe = YummyData.shared.favoriteRecipes[indexPath.row]
+        } else {
+            NSLog(String(filteredRecipes.count))
+            selectedRecipe = filteredRecipes[indexPath.row]
+        }
         performSegue(withIdentifier: "favoritesToRecipe", sender: self)
     }
     
