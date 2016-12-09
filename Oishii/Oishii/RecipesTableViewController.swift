@@ -11,7 +11,6 @@ import UIKit
 protocol CustomSearchControllerDelegate {
     func didTapOnSearchButton(searchString : String)
     
-    func didTapOnCancelButton()
 }
 
 class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
@@ -20,6 +19,7 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     var searchArray : [Recipe] = [Recipe]()
     var sentSearch = false
     
+
     var customDelegate : CustomSearchControllerDelegate!
     
     @IBOutlet weak var searchbar: UISearchBar!
@@ -86,6 +86,7 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     
     func didTapOnSearchButton(searchString : String) {
         if searchString.characters.count == 1 {
+            searchArray.removeAll()
             displayCharacterCountErrorMessage()
         } else if searchString != "" {
             let searchString : String = searchString.lowercased()
@@ -102,6 +103,9 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
             } else {
                 displayNoResultsErrorMessage()
             }
+        }
+        if searchString == "" {
+            searchArray.removeAll()
         }
         self.tableView.reloadData()
     }
@@ -121,20 +125,16 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchbar.resignFirstResponder()
         searchbar.text = ""
-        self.tableView.reloadData()
-        //self.didTapOnCancelButton()
-    }
-    
-    func didTapOnCancelButton() {
-        NSLog("INSIDE CANCEL BUTTON FUNCTION!")
+        searchArray.removeAll()
         self.tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if searchArray.count > 0 {
-            selectedRecipe = searchArray[indexPath.row]
-        } else {
+        if searchArray.count == 0 {
             selectedRecipe = YummyData.shared.recipes[indexPath.row]
+        } else {
+            NSLog(String(searchArray.count))
+            selectedRecipe = searchArray[indexPath.row]
         }
         performSegue(withIdentifier: "recipesToRecipe", sender: self)
     }
