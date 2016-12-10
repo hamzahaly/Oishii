@@ -43,6 +43,7 @@ class RecipeViewController: UIViewController {
     //Action
     func favoriteRecipe() {
         if favoritedRecipe { //You want to unfavorite
+            //to fix this line
             YummyData.shared.favoriteRecipes.remove(at: YummyData.shared.favoriteRecipes.index(of: selectedRecipe)!)
             favoriteIcon.image = UIImage(named: "heart")
             favoritedRecipe = false
@@ -51,9 +52,9 @@ class RecipeViewController: UIViewController {
             favoriteIcon.image = UIImage(named: "heart-filled")
             favoritedRecipe = true
         }
-        //save to local
         
-        
+        //save favorites to local storage
+        YummyData.shared.saveFavorites()
     }
 
     override func didReceiveMemoryWarning() {
