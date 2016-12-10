@@ -10,57 +10,48 @@ import UIKit
 
 class RecipeViewController: UIViewController {
     var selectedRecipe : Recipe = Recipe()
+    var favoritedRecipe : Bool = false
     
     @IBOutlet weak var favoriteIcon: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeLongDescription: UILabel!
-    
     @IBOutlet weak var favoriteButton: UIImageView!
+    
     override func viewDidLoad() {
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(RecipeViewController.favoriteRecipe))
         singleTap.numberOfTapsRequired = 1 // you can change this value
         favoriteButton.isUserInteractionEnabled = true
         favoriteButton.addGestureRecognizer(singleTap)
         super.viewDidLoad()
+        
         recipeName.text = selectedRecipe.name
         recipeLongDescription.text = selectedRecipe.longDescription
-        if recipeInFavorites() {
-            favoriteIcon.image = UIImage(named: "heart-filled")
-        } else {
-            favoriteIcon.image = UIImage(named: "heart")
-        }
-        // Do any additional setup after loading the view.
+        recipeInFavorites()
     }
     
-    func recipeInFavorites() -> Bool {
+    func recipeInFavorites() {
         for recipe in YummyData.shared.favoriteRecipes {
             if selectedRecipe.recipeid == recipe.recipeid {
-                return true
+                favoritedRecipe = true
+                favoriteIcon.image = UIImage(named: "heart-filled")
+                break
             }
         }
-        return false
     }
+
     
     //Action
     func favoriteRecipe() {
-        var recipeCount : Int = 0
-        var foundRecipe = false
-        for recipe in YummyData.shared.favoriteRecipes {
-            if selectedRecipe.recipeid == recipe.recipeid {
-                foundRecipe = true
-                break
-            }
-            recipeCount+=1
-        }
-        if foundRecipe { //You want to unfavorite
-            YummyData.shared.favoriteRecipes.remove(at: recipeCount)
-            NSLog("\(selectedRecipe.name) # \(recipeCount) was unfavorited")
+        if favoritedRecipe { //You want to unfavorite
+            YummyData.shared.favoriteRecipes.remove(at: YummyData.shared.favoriteRecipes.index(of: selectedRecipe)!)
             favoriteIcon.image = UIImage(named: "heart")
+            favoritedRecipe = false
         } else { //You want to favorite
             YummyData.shared.favoriteRecipes.append(selectedRecipe)
-            NSLog("\(selectedRecipe.name) # \(recipeCount) was favorited")
             favoriteIcon.image = UIImage(named: "heart-filled")
+            favoritedRecipe = true
         }
+        //save to local
         
         
     }
