@@ -65,5 +65,6 @@ class YummyData: NSObject {
         if let loadArr: [Recipe] = NSKeyedUnarchiver.unarchiveObject(withFile: YummyData.favSave) as? [Recipe] {
             favoriteRecipes = loadArr
         }
+        
     }
 }

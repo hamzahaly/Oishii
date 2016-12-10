@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol CustomSearchControllerDelegate {
+protocol CustomRecipeSearchControllerDelegate {
     func didTapOnSearchButton(searchString : String)
     
 }
@@ -16,11 +16,11 @@ protocol CustomSearchControllerDelegate {
 class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     
     var selectedRecipe : Recipe = Recipe()
-    var searchArray : [Recipe] = [Recipe]()
+    var filteredRecipes : [Recipe] = [Recipe]()
     var sentSearch = false
-    
+    var loopCounter = 0
 
-    var customDelegate : CustomSearchControllerDelegate!
+    var customDelegate : CustomRecipeSearchControllerDelegate!
     
     @IBOutlet weak var searchbar: UISearchBar!
     
@@ -52,7 +52,7 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if sentSearch {
-            return searchArray.count
+            return filteredRecipes.count
         } else {
             return YummyData.shared.recipes.count
         }
@@ -62,15 +62,17 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "RecipesCell", for: indexPath) as! RecipesTableViewCell
         if sentSearch {
-            cell.recipeName.text = searchArray[indexPath.row].name
-            cell.recipeDesc.text = searchArray[indexPath.row].shortDescription
+            cell.recipeName.text = filteredRecipes[indexPath.row].name
+            cell.recipeDesc.text = filteredRecipes[indexPath.row].shortDescription
+            loopCounter+=1
         } else {
             cell.recipeName.text = YummyData.shared.recipes[indexPath.row].name
             cell.recipeDesc.text = YummyData.shared.recipes[indexPath.row].shortDescription
-
         }
-        sentSearch = false
-
+        if loopCounter == filteredRecipes.count {
+            sentSearch = false
+            loopCounter = 0
+        }
         return cell
     }
     
@@ -86,18 +88,18 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     
     func didTapOnSearchButton(searchString : String) {
         if searchString.characters.count == 1 {
-            searchArray.removeAll()
+            filteredRecipes.removeAll()
             displayCharacterCountErrorMessage()
         } else if searchString != "" {
             let searchString : String = searchString.lowercased()
-            searchArray.removeAll()
+            filteredRecipes.removeAll()
             for recipe in YummyData.shared.recipes {
                 if recipe.name.lowercased().contains(searchString) {
-                    searchArray.append(recipe)
+                    filteredRecipes.append(recipe)
                 }
             }
-            NSLog(String(searchArray.count))
-            if searchArray.count > 0 {
+            NSLog(String(filteredRecipes.count))
+            if filteredRecipes.count > 0 {
                 sentSearch = true
                 
             } else {
@@ -105,7 +107,7 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
             }
         }
         if searchString == "" {
-            searchArray.removeAll()
+            filteredRecipes.removeAll()
         }
         self.tableView.reloadData()
     }
@@ -125,16 +127,16 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchbar.resignFirstResponder()
         searchbar.text = ""
-        searchArray.removeAll()
+        filteredRecipes.removeAll()
         self.tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if searchArray.count == 0 {
+        if filteredRecipes.count == 0 {
             selectedRecipe = YummyData.shared.recipes[indexPath.row]
         } else {
-            NSLog(String(searchArray.count))
-            selectedRecipe = searchArray[indexPath.row]
+            NSLog(String(filteredRecipes.count))
+            selectedRecipe = filteredRecipes[indexPath.row]
         }
         performSegue(withIdentifier: "recipesToRecipe", sender: self)
     }
