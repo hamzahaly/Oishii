@@ -43,8 +43,9 @@ class RecipeViewController: UIViewController {
     //Action
     func favoriteRecipe() {
         if favoritedRecipe { //You want to unfavorite
-            //to fix this line
-            YummyData.shared.favoriteRecipes.remove(at: YummyData.shared.favoriteRecipes.index(of: selectedRecipe)!)
+            if let index = YummyData.shared.favoriteRecipes.index(where: {$0.recipeid == selectedRecipe.recipeid}) {
+                YummyData.shared.favoriteRecipes.remove(at: index)
+            }
             favoriteIcon.image = UIImage(named: "heart")
             favoritedRecipe = false
         } else { //You want to favorite
