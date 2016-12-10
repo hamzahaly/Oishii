@@ -62,8 +62,10 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "RecipesCell", for: indexPath) as! RecipesTableViewCell
         if sentSearch {
+            //let recipeImageLocation = storageRef.child("recipeid/IMG_COVER.png")
             cell.recipeName.text = filteredRecipes[indexPath.row].name
             cell.recipeDesc.text = filteredRecipes[indexPath.row].shortDescription
+            //cell.recipeImage.image
             loopCounter+=1
         } else {
             cell.recipeName.text = YummyData.shared.recipes[indexPath.row].name

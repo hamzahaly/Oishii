@@ -247,6 +247,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="recipeDesc" destination="zoZ-CM-PaH" id="Pby-87-5Mk"/>
+                                    <outlet property="recipeImage" destination="vEg-7d-bLy" id="zjN-EQ-A0o"/>
                                     <outlet property="recipeName" destination="LgK-cr-TDd" id="atQ-cZ-Ugs"/>
                                 </connections>
                             </tableViewCell>
