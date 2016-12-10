@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol CustomRecipeSearchControllerDelegate {
     func didTapOnSearchButton(searchString : String)
@@ -62,10 +63,17 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "RecipesCell", for: indexPath) as! RecipesTableViewCell
         if sentSearch {
-            //let recipeImageLocation = storageRef.child("recipeid/IMG_COVER.png")
+            let recipeImageRef = YummyData.shared.storageRef.child("recipeid/IMG_COVER.png")
             cell.recipeName.text = filteredRecipes[indexPath.row].name
             cell.recipeDesc.text = filteredRecipes[indexPath.row].shortDescription
-            //cell.recipeImage.image
+            recipeImageRef.downloadURL { (URL, error) -> Void in
+                if (error != nil) {
+                    // Handle any errors
+                } else {
+                    // Get the download URL for 'images/stars.jpg'
+                    cell.recipeImage.sd_setImageWithURL(NSURL(string: BLEH), placeholderImage:UIImage(imageNamed:"placeholder.png"))
+                }
+            }
             loopCounter+=1
         } else {
             cell.recipeName.text = YummyData.shared.recipes[indexPath.row].name
