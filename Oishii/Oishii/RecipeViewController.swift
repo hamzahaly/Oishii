@@ -46,12 +46,14 @@ class RecipeViewController: UIViewController {
             if let index = YummyData.shared.favoriteRecipes.index(where: {$0.recipeid == selectedRecipe.recipeid}) {
                 YummyData.shared.favoriteRecipes.remove(at: index)
             }
+            
             favoriteIcon.image = UIImage(named: "heart-unfilled")
             favoritedRecipe = false
         } else { //You want to favorite
             YummyData.shared.favoriteRecipes.append(selectedRecipe)
             favoriteIcon.image = UIImage(named: "heart-filled")
             favoritedRecipe = true
+            YummyData.shared.favoriteRecipes.sort { $0.name < $1.name }
         }
         
         //save favorites to local storage

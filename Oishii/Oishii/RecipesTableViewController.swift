@@ -78,7 +78,7 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchbar.resignFirstResponder()
-        NSLog(searchBar.text!)
+        
         if searchBar.text != nil {
             self.didTapOnSearchButton(searchString: searchBar.text!)
         } else {
@@ -87,6 +87,7 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     func didTapOnSearchButton(searchString : String) {
+        enableCancelButton(bool: false)
         if searchString.characters.count == 1 {
             filteredRecipes.removeAll()
             displayCharacterCountErrorMessage()
@@ -98,10 +99,10 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
                     filteredRecipes.append(recipe)
                 }
             }
-            NSLog(String(filteredRecipes.count))
+            
             if filteredRecipes.count > 0 {
                 sentSearch = true
-                
+                enableCancelButton(bool: true)
             } else {
                 displayNoResultsErrorMessage()
             }
@@ -114,13 +115,13 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     
     func displayCharacterCountErrorMessage() {
         let alert = UIAlertController(title: "Search Error!", message: "Please enter more than 1 character when searching", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: {(_: UIAlertAction!) -> Void in self.searchbar.text = ""}))
         self.present(alert, animated: true, completion: nil)
     }
     
     func displayNoResultsErrorMessage() {
         let alert = UIAlertController(title: "No Results", message: "Please try searching again", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: {(_: UIAlertAction!) -> Void in self.searchbar.text = ""}))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -128,7 +129,21 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
         searchbar.resignFirstResponder()
         searchbar.text = ""
         filteredRecipes.removeAll()
+        enableCancelButton(bool: false)
         self.tableView.reloadData()
+    }
+    
+    func enableCancelButton(bool: Bool) {
+        for subView in searchbar.subviews {
+            for possibleButton in subView.subviews {
+                if possibleButton is UIButton {
+                    if let cancelButton = possibleButton as? UIButton {
+                        cancelButton.isEnabled = bool
+                        break;
+                    }
+                }
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -147,6 +162,5 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
             recipeViewController.selectedRecipe = selectedRecipe
             //Variables go here
         }
-
     }
 }

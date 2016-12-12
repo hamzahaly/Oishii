@@ -34,7 +34,6 @@ class FavoritesTableViewController: UITableViewController, UISearchBarDelegate {
         if searchBar.text == "" {
             self.tableView.reloadData()
         }
-        NSLog("Test")
     }
 
     // MARK: - Table view data source
@@ -75,7 +74,6 @@ class FavoritesTableViewController: UITableViewController, UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        NSLog(searchBar.text!)
         if searchBar.text != nil {
             self.didTapOnSearchButton(searchString: searchBar.text!)
         } else {
@@ -84,6 +82,7 @@ class FavoritesTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     func didTapOnSearchButton(searchString : String) {
+        enableCancelButton(bool: false)
         if searchString.characters.count == 1 {
             filteredRecipes.removeAll()
             displayCharacterCountErrorMessage()
@@ -95,9 +94,10 @@ class FavoritesTableViewController: UITableViewController, UISearchBarDelegate {
                     filteredRecipes.append(recipe)
                 }
             }
-            NSLog(String(filteredRecipes.count))
+            
             if filteredRecipes.count > 0 {
                 sentSearch = true
+                enableCancelButton(bool: true)
             } else {
                 displayNoResultsErrorMessage()
             }
@@ -110,13 +110,13 @@ class FavoritesTableViewController: UITableViewController, UISearchBarDelegate {
     
     func displayCharacterCountErrorMessage() {
         let alert = UIAlertController(title: "Search Error!", message: "Please enter more than 1 character when searching", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: {(_: UIAlertAction!) -> Void in self.searchBar.text = ""}))
         self.present(alert, animated: true, completion: nil)
     }
     
     func displayNoResultsErrorMessage() {
         let alert = UIAlertController(title: "No Results", message: "Please try searching again", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: {(_: UIAlertAction!) -> Void in self.searchBar.text = ""}))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -124,14 +124,27 @@ class FavoritesTableViewController: UITableViewController, UISearchBarDelegate {
         searchBar.resignFirstResponder()
         searchBar.text = ""
         filteredRecipes.removeAll()
+        enableCancelButton(bool: false)
         self.tableView.reloadData()
+    }
+    
+    func enableCancelButton(bool: Bool) {
+        for subView in searchBar.subviews {
+            for possibleButton in subView.subviews {
+                if possibleButton is UIButton {
+                    if let cancelButton = possibleButton as? UIButton {
+                        cancelButton.isEnabled = bool
+                        break;
+                    }
+                }
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if filteredRecipes.count == 0 {
             selectedRecipe = YummyData.shared.favoriteRecipes[indexPath.row]
         } else {
-            NSLog(String(filteredRecipes.count))
             selectedRecipe = filteredRecipes[indexPath.row]
         }
         performSegue(withIdentifier: "favoritesToRecipe", sender: self)
