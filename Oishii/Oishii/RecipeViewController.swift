@@ -16,10 +16,22 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeLongDescription: UILabel!
     @IBOutlet weak var favoriteButton: UIImageView!
+    @IBOutlet weak var recipeImage: UIImageView!
     
     override func viewDidLoad() {
         recipeName.text = selectedRecipe.name
         recipeLongDescription.text = selectedRecipe.longDescription
+        
+        let recipeImageRef = YummyData.shared.storageRef.child("\(selectedRecipe.recipeid)/IMG_COVER.png")
+        recipeImageRef.downloadURL { (URL, error) -> Void in
+            if (error != nil) {
+                // Handle any errors
+                NSLog("\(error)")
+            } else {
+                // Get the download URL for 'images/stars.jpg'
+                self.recipeImage.sd_setImage(with: URL)
+            }
+        }
         
         super.viewDidLoad()
     }
@@ -38,6 +50,7 @@ class RecipeViewController: UIViewController {
             favoritedRecipe = false
             favoriteIcon.image = UIImage(named: "heart-unfilled")
         }
+    
     }
     
     //Action
