@@ -166,6 +166,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="recipeDesc" destination="Ik4-l0-zCJ" id="HNX-Gc-xQF"/>
+                                    <outlet property="recipeImage" destination="IoB-fT-0uK" id="FO7-bh-JJx"/>
                                     <outlet property="recipeName" destination="UAf-rY-G60" id="dLi-ym-7RE"/>
                                 </connections>
                             </tableViewCell>
@@ -247,6 +248,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="recipeDesc" destination="zoZ-CM-PaH" id="Pby-87-5Mk"/>
+                                    <outlet property="recipeImage" destination="vEg-7d-bLy" id="zjN-EQ-A0o"/>
                                     <outlet property="recipeName" destination="LgK-cr-TDd" id="atQ-cZ-Ugs"/>
                                 </connections>
                             </tableViewCell>

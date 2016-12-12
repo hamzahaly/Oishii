@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol CustomRecipeSearchControllerDelegate {
     func didTapOnSearchButton(searchString : String)
@@ -54,6 +55,12 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
         if sentSearch {
             return filteredRecipes.count
         } else {
+            if YummyData.shared.recipes.count == 0 {
+                let alert = UIAlertController(title: "No Recipes", message: "Could not retrieve recipes", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+
             return YummyData.shared.recipes.count
         }
     }
@@ -61,13 +68,34 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "RecipesCell", for: indexPath) as! RecipesTableViewCell
+        
         if sentSearch {
+            let recipeImageRef = YummyData.shared.storageRef.child("\(filteredRecipes[indexPath.row].recipeid)/IMG_ICON.png")
             cell.recipeName.text = filteredRecipes[indexPath.row].name
             cell.recipeDesc.text = filteredRecipes[indexPath.row].shortDescription
+            recipeImageRef.downloadURL { (URL, error) -> Void in
+                if (error != nil) {
+                    // Handle any errors
+                } else {
+                    // Get the download URL for 'images/stars.jpg'
+                    cell.recipeImage.sd_setImage(with: URL)
+                }
+            }
             loopCounter+=1
         } else {
+            let fucku = YummyData.shared.storageRef!
+            let recipeImageRef = fucku.child("\(YummyData.shared.recipes[indexPath.row].recipeid)/IMG_ICON.png")
             cell.recipeName.text = YummyData.shared.recipes[indexPath.row].name
             cell.recipeDesc.text = YummyData.shared.recipes[indexPath.row].shortDescription
+            recipeImageRef.downloadURL { (URL, error) -> Void in
+                if (error != nil) {
+                    // Handle any errors
+                    NSLog("\(error)")
+                } else {
+                    // Get the download URL for 'images/stars.jpg'
+                    cell.recipeImage.sd_setImage(with: URL)
+                }
+            }
         }
         if loopCounter == filteredRecipes.count {
             sentSearch = false
