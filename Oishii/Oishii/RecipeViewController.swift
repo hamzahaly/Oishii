@@ -15,10 +15,15 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var favoriteIcon: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeLongDescription: UILabel!
-    @IBOutlet weak var favoriteButton: UIImageView!
     @IBOutlet weak var recipeImage: UIImageView!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(favoriteRecipe))
+        singleTap.numberOfTapsRequired = 1
+        favoriteIcon.isUserInteractionEnabled = true
+        favoriteIcon.addGestureRecognizer(singleTap)
+        
         recipeName.text = selectedRecipe.name
         recipeLongDescription.text = selectedRecipe.longDescription
         
@@ -32,17 +37,10 @@ class RecipeViewController: UIViewController {
                 self.recipeImage.sd_setImage(with: URL)
             }
         }
-        
-        super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(RecipeViewController.favoriteRecipe))
-        singleTap.numberOfTapsRequired = 1
-        favoriteButton.isUserInteractionEnabled = true
-        favoriteButton.addGestureRecognizer(singleTap)
-        
         if YummyData.shared.favoriteRecipes.contains(where: {$0.recipeid == selectedRecipe.recipeid}) {
             favoritedRecipe = true
             favoriteIcon.image = UIImage(named: "heart-filled")
