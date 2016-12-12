@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "heart-filled-sm.png",
+      "filename" : "heart-sm.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "heart-filled-lg.png",
+      "filename" : "heart-lg.png",
       "scale" : "2x"
     },
     {
