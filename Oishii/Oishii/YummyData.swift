@@ -29,6 +29,7 @@ class YummyData: NSObject {
         
         //TODO check internet
         ref.child("recipes").observeSingleEvent(of: .value, with: { (snapshot) in
+            self.recipes = [Recipe]()
             for child in snapshot.children.allObjects as! [FIRDataSnapshot] {
                 let data = child.value as! [String:Any]
                 let recipe = Recipe()
