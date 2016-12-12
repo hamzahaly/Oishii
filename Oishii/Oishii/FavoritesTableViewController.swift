@@ -58,6 +58,7 @@ class FavoritesTableViewController: UITableViewController, UISearchBarDelegate {
         if sentSearch {
             cell.recipeName.text = filteredRecipes[indexPath.row].name
             cell.recipeDesc.text = filteredRecipes[indexPath.row].shortDescription
+            loopCounter+=1
         } else {
             cell.recipeName.text = YummyData.shared.favoriteRecipes[indexPath.row].name
             cell.recipeDesc.text = YummyData.shared.favoriteRecipes[indexPath.row].shortDescription
@@ -67,7 +68,6 @@ class FavoritesTableViewController: UITableViewController, UISearchBarDelegate {
             sentSearch = false
             loopCounter = 0
         }
-        sentSearch = false
         
         return cell
     }
