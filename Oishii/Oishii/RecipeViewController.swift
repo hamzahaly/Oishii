@@ -18,27 +18,28 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var favoriteButton: UIImageView!
     
     override func viewDidLoad() {
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(RecipeViewController.favoriteRecipe))
-        singleTap.numberOfTapsRequired = 1 // you can change this value
-        favoriteButton.isUserInteractionEnabled = true
-        favoriteButton.addGestureRecognizer(singleTap)
-        super.viewDidLoad()
-        
         recipeName.text = selectedRecipe.name
         recipeLongDescription.text = selectedRecipe.longDescription
-        recipeInFavorites()
+        
+        print("SAAH")
+        super.viewDidLoad()
     }
     
-    func recipeInFavorites() {
-        for recipe in YummyData.shared.favoriteRecipes {
-            if selectedRecipe.recipeid == recipe.recipeid {
-                favoritedRecipe = true
-                favoriteIcon.image = UIImage(named: "heart-filled")
-                break
-            }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(RecipeViewController.favoriteRecipe))
+        singleTap.numberOfTapsRequired = 1
+        favoriteButton.isUserInteractionEnabled = true
+        favoriteButton.addGestureRecognizer(singleTap)
+        
+        
+        if let _ = YummyData.shared.favoriteRecipes.index(where: {$0.recipeid == selectedRecipe.recipeid}) {
+            favoritedRecipe = true
+            favoriteIcon.image = UIImage(named: "heart-filled")
+        } else {
+            favoriteIcon.image = UIImage(named: "heart")
         }
     }
-
     
     //Action
     func favoriteRecipe() {
