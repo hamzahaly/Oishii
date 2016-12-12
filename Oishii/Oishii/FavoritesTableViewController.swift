@@ -57,9 +57,27 @@ class FavoritesTableViewController: UITableViewController, UISearchBarDelegate {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "FavoritesCell", for: indexPath) as! FavoritesTableViewCell
         
         if sentSearch {
+            let recipeImageRef = YummyData.shared.storageRef.child("\(filteredRecipes[indexPath.row].recipeid)/IMG_ICON.png")
+            recipeImageRef.downloadURL { (URL, error) -> Void in
+                if (error != nil) {
+                    // Handle any errors
+                } else {
+                    // Get the download URL for 'images/stars.jpg'
+                    cell.recipeImage.sd_setImage(with: URL)
+                }
+            }
             cell.recipeName.text = filteredRecipes[indexPath.row].name
             cell.recipeDesc.text = filteredRecipes[indexPath.row].shortDescription
         } else {
+            let recipeImageRef = YummyData.shared.storageRef.child("\(YummyData.shared.favoriteRecipes[indexPath.row].recipeid)/IMG_ICON.png")
+            recipeImageRef.downloadURL { (URL, error) -> Void in
+                if (error != nil) {
+                    // Handle any errors
+                } else {
+                    // Get the download URL for 'images/stars.jpg'
+                    cell.recipeImage.sd_setImage(with: URL)
+                }
+            }
             cell.recipeName.text = YummyData.shared.favoriteRecipes[indexPath.row].name
             cell.recipeDesc.text = YummyData.shared.favoriteRecipes[indexPath.row].shortDescription
         }
