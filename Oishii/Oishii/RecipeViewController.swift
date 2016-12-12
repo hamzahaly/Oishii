@@ -21,7 +21,6 @@ class RecipeViewController: UIViewController {
         recipeName.text = selectedRecipe.name
         recipeLongDescription.text = selectedRecipe.longDescription
         
-        print("SAAH")
         super.viewDidLoad()
     }
     
@@ -32,12 +31,12 @@ class RecipeViewController: UIViewController {
         favoriteButton.isUserInteractionEnabled = true
         favoriteButton.addGestureRecognizer(singleTap)
         
-        
-        if let _ = YummyData.shared.favoriteRecipes.index(where: {$0.recipeid == selectedRecipe.recipeid}) {
+        if YummyData.shared.favoriteRecipes.contains(where: {$0.recipeid == selectedRecipe.recipeid}) {
             favoritedRecipe = true
             favoriteIcon.image = UIImage(named: "heart-filled")
         } else {
-            favoriteIcon.image = UIImage(named: "heart")
+            favoritedRecipe = false
+            favoriteIcon.image = UIImage(named: "heart-unfilled")
         }
     }
     
@@ -47,7 +46,7 @@ class RecipeViewController: UIViewController {
             if let index = YummyData.shared.favoriteRecipes.index(where: {$0.recipeid == selectedRecipe.recipeid}) {
                 YummyData.shared.favoriteRecipes.remove(at: index)
             }
-            favoriteIcon.image = UIImage(named: "heart")
+            favoriteIcon.image = UIImage(named: "heart-unfilled")
             favoritedRecipe = false
         } else { //You want to favorite
             YummyData.shared.favoriteRecipes.append(selectedRecipe)

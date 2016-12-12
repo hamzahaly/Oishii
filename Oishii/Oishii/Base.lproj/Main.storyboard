@@ -39,8 +39,8 @@
                                 <rect key="frame" x="85" y="224" width="186" height="155"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="DIF-OZ-Zfj">
-                                <rect key="frame" x="319" y="79" width="40" height="39"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart-unfilled" translatesAutoresizingMaskIntoConstraints="NO" id="DIF-OZ-Zfj">
+                                <rect key="frame" x="319" y="79" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -375,6 +375,7 @@
     </scenes>
     <resources>
         <image name="heart" width="25" height="25"/>
+        <image name="heart-unfilled" width="37" height="37"/>
         <image name="home" width="25" height="25"/>
         <image name="recipes" width="25" height="25"/>
     </resources>
