@@ -1,14 +1,15 @@
 //
-//  SettingsTableViewCell.swift
+//  HomeTableViewCell.swift
 //  Oishii
 //
-//  Created by Bentai on 12/12/16.
+//  Created by Bentai on 12/13/16.
 //  Copyright © 2016 Bentai. All rights reserved.
 //
 
 import UIKit
 
-class SettingsTableViewCell: UITableViewCell {
+class HomeTableViewCell: UITableViewCell {
+    @IBOutlet weak var recipeImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

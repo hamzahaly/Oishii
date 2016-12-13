@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class RecipeViewController: UIViewController {
+class RecipeViewController: UIViewController, MFMailComposeViewControllerDelegate {
     var selectedRecipe : Recipe = Recipe()
     var favoritedRecipe : Bool = false
     
@@ -72,7 +73,7 @@ class RecipeViewController: UIViewController {
     
     }
     
-    //Action
+    //Favorite Recipe
     func favoriteRecipe() {
         if favoritedRecipe { //You want to unfavorite
             if let index = YummyData.shared.favoriteRecipes.index(where: {$0.recipeid == selectedRecipe.recipeid}) {
@@ -92,6 +93,38 @@ class RecipeViewController: UIViewController {
         YummyData.shared.saveFavorites()
     }
 
+    @IBAction func emailRecipe(_ sender: Any) {
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
+    }
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        //mailComposerVC.setToRecipients(["someone@somewhere.com"])
+        mailComposerVC.setSubject("Recipe for \(selectedRecipe.name)")
+        mailComposerVC.addAttachmentData(UIImagePNGRepresentation(recipeImage.image!)!, mimeType: "image/png", fileName:  "\(selectedRecipe.name).png")
+        mailComposerVC.setMessageBody("\(recipeLongDescription.text!)\n\(ingredList.text!)\n\(recipeInstructions.text!)", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertController(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", preferredStyle: UIAlertControllerStyle.alert)
+        sendMailErrorAlert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+        self.present(sendMailErrorAlert, animated: true, completion: nil)
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
