@@ -17,8 +17,6 @@ class HomeViewController: UIViewController {
     var editors : [Recipe] = [Recipe]()
     
     override func viewWillAppear(_ animated: Bool) {
-        //Add UIImages
-        
         //Add contraints
     }
     
@@ -27,14 +25,12 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         editors = YummyData.shared.editors
         let screenSize: CGRect = UIScreen.main.bounds
-        var count = 0
         
         for (index, recipe) in editors.enumerated() {
             let imageView = UIImageView()
             imageView.frame = CGRect(x: 0, y: 0, width: Int(screenSize.width), height: 254)
             
             imageView.tag = index
-            count+=1
             //Size constraints
             imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1.0)
             imageView.leftAnchor.constraint(equalTo: imageView.leftAnchor, constant: 0.0)
@@ -49,10 +45,7 @@ class HomeViewController: UIViewController {
             imageView.addGestureRecognizer(singleTap)
             
             YummyData.shared.load(recipeid: recipe.recipeid, image: "IMG_COVER_EDITORS", into: imageView)
-            
         }
-        
-        print(editors)
     }
 
     override func didReceiveMemoryWarning() {
