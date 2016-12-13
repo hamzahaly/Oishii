@@ -241,7 +241,7 @@
                 <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" id="iZb-PO-EYL" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="home" id="F9y-Oq-ZFQ"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Aro-5e-K0V">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Aro-5e-K0V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -586,7 +586,7 @@
             <objects>
                 <navigationController id="gzY-zC-osG" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Markets" id="qZU-Tt-WNR"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2tZ-Ir-H2h">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2tZ-Ir-H2h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -598,7 +598,7 @@
             </objects>
             <point key="canvasLocation" x="-529" y="1314"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Nearby Asian Markets-->
         <scene sceneID="ctq-32-KS5">
             <objects>
                 <viewController id="fMI-DL-qeX" customClass="MapViewController" customModule="Oishii" customModuleProvider="target" sceneMemberID="viewController">
@@ -618,7 +618,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bO0-a8-Us6"/>
+                    <navigationItem key="navigationItem" title="Nearby Asian Markets" id="bO0-a8-Us6"/>
                     <connections>
                         <outlet property="mapView" destination="tIn-hM-dlD" id="wAh-gz-Rd3"/>
                     </connections>
@@ -654,7 +654,7 @@
         <image name="recipes" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NAU-MI-xOs"/>
-        <segue reference="hik-h8-fVm"/>
+        <segue reference="1JD-qk-D5f"/>
+        <segue reference="UeJ-JE-tW0"/>
     </inferredMetricsTieBreakers>
 </document>

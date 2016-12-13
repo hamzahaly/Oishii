@@ -19,7 +19,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     var placesClient: GMSPlacesClient!
-    var zoomLevel: Float = 15.0
+    var zoomLevel: Float = 13.0
     var firstUpdateDone: Bool = false
     
     override func viewDidLoad() {
@@ -43,9 +43,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func loadView() {
         super.loadView()
-        // Create a GMSCameraPosition that tells the map to display the
-        // coordinate -33.86,151.20 at zoom level 6.
-        let camera = GMSCameraPosition.camera(withLatitude: 47, longitude: -122, zoom: 6.0)
+        let camera = GMSCameraPosition.camera(withLatitude: 47, longitude: -122, zoom: 10.0)
         map = GMSMapView.map(withFrame: mapView.bounds, camera: camera)
         map.isMyLocationEnabled = true
         map.settings.myLocationButton = true
@@ -54,15 +52,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     func updateMarkers() {
         map.clear()
-//        placesClient.currentPlace(callback: { (placeLikelihoods, error) -> Void in
-//            if let error = error {
-//                print("Current Place error: \(error.localizedDescription)")
-//                return
-//            }
-//            
-//            if let likelihoodList = placeLikelihoods {
-                let latitude = self.currentLocation?.coordinate.latitude
-                let longitude = self.currentLocation?.coordinate.longitude
+        placesClient.currentPlace(callback: { (placeLikelihoods, error) -> Void in
+            if let error = error {
+                print("Current Place error: \(error.localizedDescription)")
+                return
+            }
+            
+            if let likelihoodList = placeLikelihoods {
+                let latitude = likelihoodList.likelihoods[0].place.coordinate.latitude
+                let longitude = likelihoodList.likelihoods[0].place.coordinate.longitude
                 let urlstring = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(latitude),\(longitude)&radius=10000&keyword=asian&type=grocery_or_supermarket&key=AIzaSyCk_aZSvY9AeVxHgTe9oeCYYYXgLZ3S78g"
                 let url = NSURL(string: urlstring)
                 let session = URLSession.shared
@@ -72,7 +70,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                         if urlData != nil && error == nil{
                             do {
                                 let jsonresult = try JSONSerialization.jsonObject(with: urlData!, options: []) as! [String: Any]
-                                self.parseMarkers(jsonresult: jsonresult)
+                                let results = jsonresult["results"] as! [[String:Any]]
+                                print(results.count)
+                                for result in results {
+                                    var geometry = result["geometry"] as! [String:Any]
+                                    var resultloc = geometry["location"] as! [String:Double]
+                                    let name = result["name"] as! String
+                                    let address = result["vicinity"] as! String
+                                    
+                                    let marker = GMSMarker()
+                                    marker.position = CLLocationCoordinate2D(latitude: resultloc["lat"]!, longitude: resultloc["lng"]!)
+                                    marker.title = name
+                                    marker.snippet = address
+                                    marker.map = self.map
+                                }
                             } catch {
                                 print(error)
                             }
@@ -85,26 +96,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                     task.resume()
                 }
 
-//            }
-//        })
-    }
-    
-    func parseMarkers(jsonresult: [String: Any]){        
-        let results = jsonresult["results"] as! [[String:Any]]
-        print(results.count)
-        for result in results {
-            var geometry = result["geometry"] as! [String:Any]
-            var resultloc = geometry["location"] as! [String:Double]
-            print(resultloc)
-            let name = result["name"] as! String
-            let address = result["vicinity"] as! String
-            
-            let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude: resultloc["lat"]!, longitude: resultloc["lng"]!)
-            marker.title = name
-            marker.snippet = address
-            marker.map = self.map
-        }
+            }
+        })
     }
     
     // Handle incoming location events.
