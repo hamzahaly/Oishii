@@ -26,13 +26,20 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         editors = YummyData.shared.editors
-        
+        let screenSize: CGRect = UIScreen.main.bounds
         var count = 0
+        
         for (index, recipe) in editors.enumerated() {
             let imageView = UIImageView()
-            imageView.frame = CGRect(x: 0, y: count * 254, width: 341, height: 254)
+            imageView.frame = CGRect(x: 0, y: 0, width: Int(screenSize.width), height: 254)
+            
             imageView.tag = index
             count+=1
+            //Size constraints
+            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1.0)
+            imageView.leftAnchor.constraint(equalTo: imageView.leftAnchor, constant: 0.0)
+            imageView.rightAnchor.constraint(equalTo: imageView.rightAnchor, constant: 0.0)
+            imageView.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8.0)
             let recipeImageRef = YummyData.shared.storageRef.child("\(recipe.recipeid)/IMG_COVER_EDITORS.png")
             recipeImageRef.downloadURL { (URL, error) -> Void in
                 if (error != nil) {
@@ -47,7 +54,6 @@ class HomeViewController: UIViewController {
                     singleTap.numberOfTapsRequired = 1
                     imageView.isUserInteractionEnabled = true
                     imageView.addGestureRecognizer(singleTap)
-                    //NSLog(String(describing: imageView.image))
                 }
             }
         }
