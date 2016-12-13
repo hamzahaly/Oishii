@@ -15,22 +15,32 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var favoriteIcon: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeLongDescription: UILabel!
-    @IBOutlet weak var favoriteButton: UIImageView!
+    @IBOutlet weak var recipeImage: UIImageView!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(favoriteRecipe))
+        singleTap.numberOfTapsRequired = 1
+        favoriteIcon.isUserInteractionEnabled = true
+        favoriteIcon.addGestureRecognizer(singleTap)
+        
         recipeName.text = selectedRecipe.name
         recipeLongDescription.text = selectedRecipe.longDescription
         
-        super.viewDidLoad()
+        let recipeImageRef = YummyData.shared.storageRef.child("\(selectedRecipe.recipeid)/IMG_COVER.png")
+        recipeImageRef.downloadURL { (URL, error) -> Void in
+            if (error != nil) {
+                // Handle any errors
+                NSLog("\(error)")
+            } else {
+                // Get the download URL for 'images/stars.jpg'
+                self.recipeImage.sd_setImage(with: URL)
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(RecipeViewController.favoriteRecipe))
-        singleTap.numberOfTapsRequired = 1
-        favoriteButton.isUserInteractionEnabled = true
-        favoriteButton.addGestureRecognizer(singleTap)
-        
         if YummyData.shared.favoriteRecipes.contains(where: {$0.recipeid == selectedRecipe.recipeid}) {
             favoritedRecipe = true
             favoriteIcon.image = UIImage(named: "heart-filled")
@@ -38,6 +48,7 @@ class RecipeViewController: UIViewController {
             favoritedRecipe = false
             favoriteIcon.image = UIImage(named: "heart-unfilled")
         }
+    
     }
     
     //Action

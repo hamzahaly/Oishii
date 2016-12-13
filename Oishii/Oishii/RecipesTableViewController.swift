@@ -83,8 +83,7 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
             }
             loopCounter+=1
         } else {
-            let fucku = YummyData.shared.storageRef!
-            let recipeImageRef = fucku.child("\(YummyData.shared.recipes[indexPath.row].recipeid)/IMG_ICON.png")
+            let recipeImageRef = YummyData.shared.storageRef.child("\(YummyData.shared.recipes[indexPath.row].recipeid)/IMG_ICON.png")
             cell.recipeName.text = YummyData.shared.recipes[indexPath.row].name
             cell.recipeDesc.text = YummyData.shared.recipes[indexPath.row].shortDescription
             recipeImageRef.downloadURL { (URL, error) -> Void in
