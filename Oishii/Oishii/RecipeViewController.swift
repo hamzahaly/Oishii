@@ -18,6 +18,7 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var ingredImage: UIImageView!
     @IBOutlet weak var finalImage: UIImageView!
+    @IBOutlet weak var ingredList: UILabel!
     @IBOutlet weak var recipeInstructions: UILabel!
     
     override func viewDidLoad() {
@@ -28,10 +29,35 @@ class RecipeViewController: UIViewController {
         favoriteIcon.addGestureRecognizer(singleTap)
         
         recipeName.text = selectedRecipe.name
-        recipeLongDescription.text = selectedRecipe.longDescription
+        var cats = "\nGood for: "
+        for cat in selectedRecipe.categories{
+            cats += cat
+            if(cat != selectedRecipe.categories[selectedRecipe.categories.count - 1]){
+                cats += ", "
+            }
+        }
+        recipeLongDescription.text = "\(selectedRecipe.longDescription)\n\(cats)"
+        
+        var buffer = ""
+        for ingredient in selectedRecipe.ingredients {
+            buffer += "- "
+            buffer += ingredient
+            buffer += "\n"
+        }
+        ingredList.text = buffer
+        buffer = ""
+        for index in 0 ..< selectedRecipe.procedure.count {
+            buffer += "\(index+1). "
+            buffer += selectedRecipe.procedure[index]
+            if(index != selectedRecipe.procedure.count - 1){
+                buffer += "\n\n"
+            }
+        }
+        recipeInstructions.text = buffer
         
         YummyData.shared.load(recipeid: selectedRecipe.recipeid, image: "IMG_COVER", into: recipeImage)
         YummyData.shared.load(recipeid: selectedRecipe.recipeid, image: "IMG_INGRED", into: ingredImage)
+        YummyData.shared.load(recipeid: selectedRecipe.recipeid, image: "IMG_FINISH", into: finalImage)
     }
     
     override func viewWillAppear(_ animated: Bool) {
