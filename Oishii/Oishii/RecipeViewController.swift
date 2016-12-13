@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class RecipeViewController: UIViewController {
+class RecipeViewController: UIViewController, MFMailComposeViewControllerDelegate {
     var selectedRecipe : Recipe = Recipe()
     var favoritedRecipe : Bool = false
     
@@ -18,6 +19,8 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var ingredImage: UIImageView!
     @IBOutlet weak var finalImage: UIImageView!
+    @IBOutlet weak var ingredList: UILabel!
+    @IBOutlet weak var recipeInstructions: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +30,35 @@ class RecipeViewController: UIViewController {
         favoriteIcon.addGestureRecognizer(singleTap)
         
         recipeName.text = selectedRecipe.name
-        recipeLongDescription.text = selectedRecipe.longDescription
+        var cats = "\nGood for: "
+        for cat in selectedRecipe.categories{
+            cats += cat
+            if(cat != selectedRecipe.categories[selectedRecipe.categories.count - 1]){
+                cats += ", "
+            }
+        }
+        recipeLongDescription.text = "\(selectedRecipe.longDescription)\n\(cats)"
+        
+        var buffer = ""
+        for ingredient in selectedRecipe.ingredients {
+            buffer += "- "
+            buffer += ingredient
+            buffer += "\n"
+        }
+        ingredList.text = buffer
+        buffer = ""
+        for index in 0 ..< selectedRecipe.procedure.count {
+            buffer += "\(index+1). "
+            buffer += selectedRecipe.procedure[index]
+            if(index != selectedRecipe.procedure.count - 1){
+                buffer += "\n\n"
+            }
+        }
+        recipeInstructions.text = buffer
         
         YummyData.shared.load(recipeid: selectedRecipe.recipeid, image: "IMG_COVER", into: recipeImage)
         YummyData.shared.load(recipeid: selectedRecipe.recipeid, image: "IMG_INGRED", into: ingredImage)
+        YummyData.shared.load(recipeid: selectedRecipe.recipeid, image: "IMG_FINISH", into: finalImage)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +73,7 @@ class RecipeViewController: UIViewController {
     
     }
     
-    //Action
+    //Favorite Recipe
     func favoriteRecipe() {
         if favoritedRecipe { //You want to unfavorite
             if let index = YummyData.shared.favoriteRecipes.index(where: {$0.recipeid == selectedRecipe.recipeid}) {
@@ -65,6 +93,38 @@ class RecipeViewController: UIViewController {
         YummyData.shared.saveFavorites()
     }
 
+    @IBAction func emailRecipe(_ sender: Any) {
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
+    }
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        //mailComposerVC.setToRecipients(["someone@somewhere.com"])
+        mailComposerVC.setSubject("Recipe for \(selectedRecipe.name)")
+        mailComposerVC.addAttachmentData(UIImagePNGRepresentation(recipeImage.image!)!, mimeType: "image/png", fileName:  "\(selectedRecipe.name).png")
+        mailComposerVC.setMessageBody("\(recipeLongDescription.text!)\n\(ingredList.text!)\n\(recipeInstructions.text!)", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertController(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", preferredStyle: UIAlertControllerStyle.alert)
+        sendMailErrorAlert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+        self.present(sendMailErrorAlert, animated: true, completion: nil)
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

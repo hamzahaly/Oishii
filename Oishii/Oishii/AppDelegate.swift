@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         YummyData.shared.setup()
+        GMSServices.provideAPIKey("AIzaSyAKEfmDt554Bnecyxrh8BFVIDKeON9DBmk")
+        GMSPlacesClient.provideAPIKey("AIzaSyAKEfmDt554Bnecyxrh8BFVIDKeON9DBmk")
         // Override point for customization after application launch.
         
         if !YummyData.shared.theme {

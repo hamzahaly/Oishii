@@ -13,6 +13,9 @@ target 'Oishii' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
+  
   platform :ios, '8.0'
   use_frameworks!
   pod 'SDWebImage', '~>3.8'
