@@ -161,11 +161,11 @@
 				496B3B631DEBF52800E6359F /* RecipeViewController.swift */,
 				9DD58F801DF79E5D00C625DA /* Recipe.swift */,
 				9D6945AF1DF11B8C00997226 /* GoogleService-Info.plist */,
+				E9B6B7881DF4FA7E00238C1A /* YummyData.swift */,
 				9D60F1FF1DE52CB100AB0993 /* Main.storyboard */,
 				9D60F2021DE52CB100AB0993 /* Assets.xcassets */,
 				9D60F2041DE52CB100AB0993 /* LaunchScreen.storyboard */,
 				9D60F2071DE52CB100AB0993 /* Info.plist */,
-				E9B6B7881DF4FA7E00238C1A /* YummyData.swift */,
 			);
 			path = Oishii;
 			sourceTree = "<group>";

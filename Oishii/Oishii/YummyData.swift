@@ -84,6 +84,17 @@ class YummyData: NSObject {
         if let loadArr: [Recipe] = NSKeyedUnarchiver.unarchiveObject(withFile: YummyData.favSave) as? [Recipe] {
             favoriteRecipes = loadArr
         }
-        
+    }
+    
+    func load(recipeid: String, image: String, into: UIImageView){
+        let recipeImageRef = storageRef.child("\(recipeid)/\(image).png")
+        recipeImageRef.downloadURL { (URL, error) -> Void in
+            if (error != nil) {
+                // Handle any errors
+            } else {
+                // Get the download URL for 'images/stars.jpg'
+                into.sd_setImage(with: URL)
+            }
+        }
     }
 }
