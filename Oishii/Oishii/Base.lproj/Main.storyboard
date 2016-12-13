@@ -62,7 +62,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Instructions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PzP-2m-c0e">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Instructions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PzP-2m-c0e">
                                                 <rect key="frame" x="17" y="596" width="341" height="23"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
@@ -121,6 +121,7 @@
                     <size key="freeformSize" width="375" height="900"/>
                     <connections>
                         <outlet property="favoriteIcon" destination="DIF-OZ-Zfj" id="oaY-Yc-S7M"/>
+                        <outlet property="finalImage" destination="IKE-sk-MNZ" id="N3H-p1-oFb"/>
                         <outlet property="ingredImage" destination="57o-b5-vCm" id="8le-4D-mOt"/>
                         <outlet property="recipeImage" destination="8AX-RW-zCX" id="iD0-12-HhX"/>
                         <outlet property="recipeLongDescription" destination="tgi-Mt-Lfd" id="rVx-PZ-kam"/>
