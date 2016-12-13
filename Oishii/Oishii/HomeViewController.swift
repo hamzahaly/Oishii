@@ -14,11 +14,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     
     var selectedRecipe : Recipe = Recipe()
-    var editors : [Recipe] = [Recipe]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        editors = YummyData.shared.editors
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,18 +25,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return editors.count
+        return YummyData.shared.editors.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "EditorsCell", for: indexPath) as! HomeTableViewCell
-        YummyData.shared.load(recipeid: editors[indexPath.row].recipeid, image: "IMG_COVER_EDITORS", into: cell.recipeImage)
+        YummyData.shared.load(recipeid: YummyData.shared.editors[indexPath.row].recipeid, image: "IMG_COVER_EDITORS", into: cell.recipeImage)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedRecipe = editors[indexPath.row]
+        selectedRecipe = YummyData.shared.editors[indexPath.row]
         performSegue(withIdentifier: "homeToRecipe", sender: self)
     }
     

@@ -109,7 +109,7 @@ class RecipeViewController: UIViewController, MFMailComposeViewControllerDelegat
         //mailComposerVC.setToRecipients(["someone@somewhere.com"])
         mailComposerVC.setSubject("Recipe for \(selectedRecipe.name)")
         mailComposerVC.addAttachmentData(UIImagePNGRepresentation(recipeImage.image!)!, mimeType: "image/png", fileName:  "\(selectedRecipe.name).png")
-        mailComposerVC.setMessageBody("\(recipeLongDescription.text)\n\(ingredList.text)\n\(recipeInstructions.text)", isHTML: false)
+        mailComposerVC.setMessageBody("\(recipeLongDescription.text!)\n\(ingredList.text!)\n\(recipeInstructions.text!)", isHTML: false)
         
         return mailComposerVC
     }
