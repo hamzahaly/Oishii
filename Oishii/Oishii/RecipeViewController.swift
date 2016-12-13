@@ -16,6 +16,7 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeLongDescription: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
+    @IBOutlet weak var ingredImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,16 +28,8 @@ class RecipeViewController: UIViewController {
         recipeName.text = selectedRecipe.name
         recipeLongDescription.text = selectedRecipe.longDescription
         
-        let recipeImageRef = YummyData.shared.storageRef.child("\(selectedRecipe.recipeid)/IMG_COVER.png")
-        recipeImageRef.downloadURL { (URL, error) -> Void in
-            if (error != nil) {
-                // Handle any errors
-                NSLog("\(error)")
-            } else {
-                // Get the download URL for 'images/stars.jpg'
-                self.recipeImage.sd_setImage(with: URL)
-            }
-        }
+        YummyData.shared.load(recipeid: selectedRecipe.recipeid, image: "IMG_COVER", into: recipeImage)
+        YummyData.shared.load(recipeid: selectedRecipe.recipeid, image: "IMG_INGRED", into: ingredImage)
     }
     
     override func viewWillAppear(_ animated: Bool) {

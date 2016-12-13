@@ -70,31 +70,14 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "RecipesCell", for: indexPath) as! RecipesTableViewCell
         
         if sentSearch {
-            let recipeImageRef = YummyData.shared.storageRef.child("\(filteredRecipes[indexPath.row].recipeid)/IMG_ICON.png")
+            YummyData.shared.load(recipeid: filteredRecipes[indexPath.row].recipeid, image: "IMG_ICON", into: cell.recipeImage)
             cell.recipeName.text = filteredRecipes[indexPath.row].name
             cell.recipeDesc.text = filteredRecipes[indexPath.row].shortDescription
-            recipeImageRef.downloadURL { (URL, error) -> Void in
-                if (error != nil) {
-                    // Handle any errors
-                } else {
-                    // Get the download URL for 'images/stars.jpg'
-                    cell.recipeImage.sd_setImage(with: URL)
-                }
-            }
             loopCounter+=1
         } else {
-            let recipeImageRef = YummyData.shared.storageRef.child("\(YummyData.shared.recipes[indexPath.row].recipeid)/IMG_ICON.png")
+            YummyData.shared.load(recipeid: YummyData.shared.recipes[indexPath.row].recipeid, image: "IMG_ICON", into: cell.recipeImage)
             cell.recipeName.text = YummyData.shared.recipes[indexPath.row].name
             cell.recipeDesc.text = YummyData.shared.recipes[indexPath.row].shortDescription
-            recipeImageRef.downloadURL { (URL, error) -> Void in
-                if (error != nil) {
-                    // Handle any errors
-                    NSLog("\(error)")
-                } else {
-                    // Get the download URL for 'images/stars.jpg'
-                    cell.recipeImage.sd_setImage(with: URL)
-                }
-            }
         }
         if loopCounter == filteredRecipes.count {
             sentSearch = false

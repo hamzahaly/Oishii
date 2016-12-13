@@ -40,22 +40,16 @@ class HomeViewController: UIViewController {
             imageView.leftAnchor.constraint(equalTo: imageView.leftAnchor, constant: 0.0)
             imageView.rightAnchor.constraint(equalTo: imageView.rightAnchor, constant: 0.0)
             imageView.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8.0)
-            let recipeImageRef = YummyData.shared.storageRef.child("\(recipe.recipeid)/IMG_COVER_EDITORS.png")
-            recipeImageRef.downloadURL { (URL, error) -> Void in
-                if (error != nil) {
-                    // Handle any errors
-                    NSLog("\(error)")
-                } else {
-                    imageView.sd_setImage(with: URL)
-                    // need to set constraints
-                    self.scrollView.addSubview(imageView)
-                    
-                    let singleTap = UITapGestureRecognizer(target: self, action: #selector(self.goToRecipe))
-                    singleTap.numberOfTapsRequired = 1
-                    imageView.isUserInteractionEnabled = true
-                    imageView.addGestureRecognizer(singleTap)
-                }
-            }
+
+            self.scrollView.addSubview(imageView)
+            
+            let singleTap = UITapGestureRecognizer(target: self, action: #selector(self.goToRecipe))
+            singleTap.numberOfTapsRequired = 1
+            imageView.isUserInteractionEnabled = true
+            imageView.addGestureRecognizer(singleTap)
+            
+            YummyData.shared.load(recipeid: recipe.recipeid, image: "IMG_COVER_EDITORS", into: imageView)
+            
         }
         
         print(editors)
