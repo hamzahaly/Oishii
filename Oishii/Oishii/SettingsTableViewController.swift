@@ -35,16 +35,14 @@ class SettingsTableViewController: UITableViewController {
     }
 
 
-    //Switch is originally on
+    // TODO: Switch theme
     @IBAction func switchTheme(_ sender: Any) {
         if switchButton.isOn {
             switchButton.setOn(true, animated: true)
             YummyData.shared.theme = false
-            print(switchButton.isOn)
         } else {
             YummyData.shared.theme = true
             switchButton.setOn(false, animated: true)
-            print(switchButton.isOn)
         }
     }
     

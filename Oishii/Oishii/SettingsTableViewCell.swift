@@ -13,10 +13,6 @@ class SettingsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-//        let switchButton = UISwitch(frame: CGRect(x: 150, y: 300, width: 0, height: 0))
-//        switchButton.isOn = true
-//        switchButton.setOn(true, animated: false)
-//        self.contentView.addSubview(switchButton)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
