@@ -9,7 +9,8 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
-
+    
+    @IBOutlet weak var switchButton: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,33 +22,32 @@ class SettingsTableViewController: UITableViewController {
         
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        if YummyData.shared.theme {
+            switchButton.setOn(false, animated: false)
+        } else {
+            switchButton.setOn(true, animated: false)
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    //Switch is originally on
+    @IBAction func switchTheme(_ sender: Any) {
+        if switchButton.isOn {
+            switchButton.setOn(true, animated: true)
+            YummyData.shared.theme = false
+            print(switchButton.isOn)
+        } else {
+            YummyData.shared.theme = true
+            switchButton.setOn(false, animated: true)
+            print(switchButton.isOn)
+        }
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

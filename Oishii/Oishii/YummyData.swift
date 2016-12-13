@@ -21,6 +21,7 @@ class YummyData: NSObject {
     var recipes: [Recipe] = [Recipe]()
     var favoriteRecipes: [Recipe] = [Recipe]()
     var editors: [Recipe] = [Recipe]()
+    var theme : Bool = false
     
     func setup(){
         // configure Firebase
