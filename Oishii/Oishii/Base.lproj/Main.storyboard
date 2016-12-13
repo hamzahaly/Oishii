@@ -120,6 +120,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="900"/>
                     <connections>
+                        <outlet property="RecipeInstructions" destination="PzP-2m-c0e" id="I1S-d1-6hs"/>
                         <outlet property="favoriteIcon" destination="DIF-OZ-Zfj" id="oaY-Yc-S7M"/>
                         <outlet property="finalImage" destination="IKE-sk-MNZ" id="N3H-p1-oFb"/>
                         <outlet property="ingredImage" destination="57o-b5-vCm" id="8le-4D-mOt"/>
