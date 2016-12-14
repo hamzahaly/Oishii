@@ -13,9 +13,14 @@ import FirebaseStorage
 
 class YummyData: NSObject {
     static let shared = YummyData()
-    private static let recipesSave = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "recipes"
-    private static let editorsSave = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "editors"
-    private static let favSave = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "favorites"
+    private static let recipesSave = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
+    private static let recipesSavePath = recipesSave.appendingPathComponent("recipes")
+    
+    private static let editorsSave = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
+    private static let editorsSavePath = editorsSave.appendingPathComponent("editors")
+    
+    private static let favSave = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
+    private static let faveSavePath = favSave.appendingPathComponent("favorites")
     var ref: FIRDatabaseReference!
     var storageRef: FIRStorageReference!
     var recipes: [Recipe] = [Recipe]()
@@ -64,24 +69,24 @@ class YummyData: NSObject {
     }
     
     func save(){
-        NSKeyedArchiver.archiveRootObject(recipes, toFile: YummyData.recipesSave)
-        NSKeyedArchiver.archiveRootObject(editors, toFile: YummyData.editorsSave)
+        NSKeyedArchiver.archiveRootObject(recipes, toFile: YummyData.recipesSavePath)
+        NSKeyedArchiver.archiveRootObject(editors, toFile: YummyData.editorsSavePath)
         saveFavorites()
     }
     
     func saveFavorites() {
-        NSKeyedArchiver.archiveRootObject(favoriteRecipes, toFile: YummyData.favSave)
+        NSKeyedArchiver.archiveRootObject(favoriteRecipes, toFile: YummyData.faveSavePath)
     }
     
     func loadOffline(){
-        if let loadArr: [Recipe] = NSKeyedUnarchiver.unarchiveObject(withFile: YummyData.recipesSave) as? [Recipe] {
+        if let loadArr: [Recipe] = NSKeyedUnarchiver.unarchiveObject(withFile: YummyData.recipesSavePath) as? [Recipe] {
             recipes = loadArr
         }
         
-        if let loadArr: [Recipe] = NSKeyedUnarchiver.unarchiveObject(withFile: YummyData.editorsSave) as? [Recipe] {
+        if let loadArr: [Recipe] = NSKeyedUnarchiver.unarchiveObject(withFile: YummyData.editorsSavePath) as? [Recipe] {
             editors = loadArr
         }
-        if let loadArr: [Recipe] = NSKeyedUnarchiver.unarchiveObject(withFile: YummyData.favSave) as? [Recipe] {
+        if let loadArr: [Recipe] = NSKeyedUnarchiver.unarchiveObject(withFile: YummyData.faveSavePath) as? [Recipe] {
             favoriteRecipes = loadArr
         }
     }
