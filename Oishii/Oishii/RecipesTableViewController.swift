@@ -50,7 +50,6 @@ class RecipesTableViewController: UITableViewController, UISearchBarDelegate {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         if sentSearch {
             return filteredRecipes.count
         } else {
