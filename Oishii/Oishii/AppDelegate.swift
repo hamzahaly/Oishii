@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         let greenTheme = UserDefaults.standard
-        print("GREEN: \(greenTheme.bool(forKey: "GreenTheme"))")
         var isGreen = greenTheme.bool(forKey: "GreenTheme")
         
         if isGreen {
@@ -47,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UITabBar.appearance().barTintColor = UIColor.white
             UITabBar.appearance().unselectedItemTintColor = UIColor.darkGray
             
-            UISearchBar.appearance().barTintColor = UIColor.darkGray
+            UISearchBar.appearance().barTintColor = UIColor.gray
             
             let cancelButtonAttributes: NSDictionary = [NSForegroundColorAttributeName: UIColor.darkGray]
             UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes as? [String: AnyObject], for: UIControlState.normal)
