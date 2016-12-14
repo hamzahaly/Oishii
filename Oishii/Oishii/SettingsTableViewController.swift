@@ -47,13 +47,14 @@ class SettingsTableViewController: UITableViewController {
             switchButton.setOn(false, animated: true)
             UINavigationBar.appearance().barTintColor = UIColor.white
             UINavigationBar.appearance().tintColor = UIColor.darkGray
+            
             UITabBar.appearance().tintColor = UIColor(red: 255/255, green: 133/225, blue: 152/255, alpha: 1.0)
             UITabBar.appearance().barTintColor = UIColor.white
             UITabBar.appearance().unselectedItemTintColor = UIColor.darkGray
             
             UISearchBar.appearance().barTintColor = UIColor.darkGray
             
-            let cancelButtonAttributes: NSDictionary = [NSForegroundColorAttributeName: UIColor.white]
+            let cancelButtonAttributes: NSDictionary = [NSForegroundColorAttributeName: UIColor.darkGray]
             UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes as? [String: AnyObject], for: UIControlState.normal)
         }
     }
@@ -79,7 +80,8 @@ class SettingsTableViewController: UITableViewController {
             plainTheme.set(false, forKey: "PlainTheme")
             print("Green: \(greenTheme.bool(forKey: "GreenTheme"))")
             print("Plain: \(plainTheme.bool(forKey: "PlainTheme"))")
-
+            isGreen = true
+            isPlain = false
         } else {
             switchButton.setOn(false, animated: true)
             //YummyData.shared.theme = false
@@ -87,7 +89,12 @@ class SettingsTableViewController: UITableViewController {
             plainTheme.set(true, forKey: "PlainTheme")
             print("Green: \(greenTheme.bool(forKey: "GreenTheme"))")
             print("Plain: \(plainTheme.bool(forKey: "PlainTheme"))")
+            isGreen = false
+            isPlain = true
         }
+        let alert = UIAlertController(title: "Theme changed!", message: "Theme will change the next time you start the app", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default))
+        self.present(alert, animated: true, completion: nil)
         changeTheme()
     }
     
@@ -96,18 +103,9 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func changeTheme() {
+        print("Changing Themes")
         if isGreen {
-            UINavigationBar.appearance().barTintColor = UIColor(red: 139/255, green: 191/225, blue: 131/255, alpha: 1.0)
-            
-            UITabBar.appearance().tintColor = UIColor(red: 255/255, green: 133/225, blue: 152/255, alpha: 1.0)
-            UITabBar.appearance().barTintColor = UIColor(red: 139/255, green: 191/225, blue: 131/255, alpha: 1.0)
-            UITabBar.appearance().unselectedItemTintColor = UIColor.darkGray
-            
-            UISearchBar.appearance().barTintColor = UIColor(red: 139/255, green: 191/225, blue: 131/255, alpha: 1.0)
-            
-            let cancelButtonAttributes: NSDictionary = [NSForegroundColorAttributeName: UIColor.darkGray]
-            UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes as? [String: AnyObject], for: UIControlState.normal)
-        } else {
+            print("is Green")
             UINavigationBar.appearance().barTintColor = UIColor.white
             UINavigationBar.appearance().tintColor = UIColor.darkGray
             
@@ -119,6 +117,19 @@ class SettingsTableViewController: UITableViewController {
             
             let cancelButtonAttributes: NSDictionary = [NSForegroundColorAttributeName: UIColor.white]
             UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes as? [String: AnyObject], for: UIControlState.normal)
+        } else {
+            print("is Plain")
+            UINavigationBar.appearance().barTintColor = UIColor(red: 139/255, green: 191/225, blue: 131/255, alpha: 1.0)
+            
+            UITabBar.appearance().tintColor = UIColor(red: 255/255, green: 133/225, blue: 152/255, alpha: 1.0)
+            UITabBar.appearance().barTintColor = UIColor(red: 139/255, green: 191/225, blue: 131/255, alpha: 1.0)
+            UITabBar.appearance().unselectedItemTintColor = UIColor.darkGray
+            
+            UISearchBar.appearance().barTintColor = UIColor(red: 139/255, green: 191/225, blue: 131/255, alpha: 1.0)
+            
+            let cancelButtonAttributes: NSDictionary = [NSForegroundColorAttributeName: UIColor.darkGray]
+            UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes as? [String: AnyObject], for: UIControlState.normal)
+            
         }
     }
     /*
