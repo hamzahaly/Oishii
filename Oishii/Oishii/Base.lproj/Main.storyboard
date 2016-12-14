@@ -87,8 +87,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKl-zi-Wt5">
-                                                <rect key="frame" x="17" y="328" width="124" height="30"/>
-                                                <state key="normal" title="E-mail this recipe!"/>
+                                                <rect key="frame" x="17" y="328" width="171" height="25"/>
+                                                <state key="normal" title=" E-mail this recipe!" image="mail"/>
                                                 <connections>
                                                     <action selector="emailRecipe:" destination="3y6-56-dXe" eventType="touchUpInside" id="hrI-RN-RaM"/>
                                                 </connections>
@@ -114,7 +114,7 @@
                                             <constraint firstItem="DIF-OZ-Zfj" firstAttribute="trailing" secondItem="uxc-c8-Gm1" secondAttribute="trailing" constant="-17" id="ZGk-A2-HBN"/>
                                             <constraint firstItem="2wv-g6-9HF" firstAttribute="leading" secondItem="uxc-c8-Gm1" secondAttribute="leading" constant="17" id="bYx-6s-377"/>
                                             <constraint firstItem="IKE-sk-MNZ" firstAttribute="top" secondItem="sGz-6L-Sb8" secondAttribute="bottom" constant="8" id="cLt-Za-WXv"/>
-                                            <constraint firstItem="tgi-Mt-Lfd" firstAttribute="top" secondItem="cKl-zi-Wt5" secondAttribute="bottom" constant="8" id="clv-JO-k2x"/>
+                                            <constraint firstItem="tgi-Mt-Lfd" firstAttribute="top" secondItem="cKl-zi-Wt5" secondAttribute="bottom" constant="16" id="clv-JO-k2x"/>
                                             <constraint firstAttribute="trailing" secondItem="57o-b5-vCm" secondAttribute="trailing" constant="17" id="e8d-7A-sxM"/>
                                             <constraint firstItem="dEf-6q-Cfu" firstAttribute="leading" secondItem="uxc-c8-Gm1" secondAttribute="leading" constant="17" id="eUs-aA-ti4"/>
                                             <constraint firstItem="57o-b5-vCm" firstAttribute="leading" secondItem="uxc-c8-Gm1" secondAttribute="leading" constant="17" id="fnN-cx-oU3"/>
@@ -185,7 +185,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="272"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rfa-a5-BO7" id="lmD-CW-af7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="272"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="271"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="av4-ig-JhH">
@@ -259,7 +259,7 @@
                 <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" id="iZb-PO-EYL" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="home" id="F9y-Oq-ZFQ"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Aro-5e-K0V">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Aro-5e-K0V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.98785310983657837" green="0.60179412364959717" blue="0.59746712446212769" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -294,7 +294,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="83"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jjG-wV-RqP" id="Reb-nj-csL">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="83"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="UAf-rY-G60">
@@ -376,7 +376,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="83"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JVY-vt-jap" id="UMB-Fa-4cy">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="83"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vEg-7d-bLy">
@@ -482,7 +482,7 @@
                             <tableViewSection headerTitle="About" id="lm6-ZY-z4K">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AboutCell" id="pfU-UV-8xB" customClass="SettingsTableViewCell" customModule="Oishii" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="159" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="160" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pfU-UV-8xB" id="rr2-qJ-b5p">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
@@ -506,7 +506,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SourceCell" id="SIh-7O-bHb" customClass="SettingsTableViewCell" customModule="Oishii" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="203" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="204" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SIh-7O-bHb" id="DdP-g8-1uZ">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
@@ -741,7 +741,7 @@
         <scene sceneID="cDs-hQ-xhq">
             <objects>
                 <navigationController id="gzY-zC-osG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Markets" id="qZU-Tt-WNR"/>
+                    <tabBarItem key="tabBarItem" title="Markets" image="cart" id="qZU-Tt-WNR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2tZ-Ir-H2h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -805,10 +805,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cart" width="25" height="25"/>
         <image name="heart" width="25" height="25"/>
         <image name="heart-unfilled" width="37" height="37"/>
         <image name="home" width="25" height="25"/>
         <image name="logo" width="133" height="133"/>
+        <image name="mail" width="25" height="25"/>
         <image name="recipes" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
