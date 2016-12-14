@@ -38,9 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let cancelButtonAttributes: NSDictionary = [NSForegroundColorAttributeName: UIColor.darkGray]
             UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes as? [String: AnyObject], for: UIControlState.normal)
         } else {
-            
             UINavigationBar.appearance().barTintColor = UIColor.white
-            UINavigationBar.appearance().tintColor = UIColor.darkGray
+            //UINavigationBar.appearance().tintColor = UIColor.darkGray
             
             UITabBar.appearance().tintColor = UIColor(red: 255/255, green: 133/225, blue: 152/255, alpha: 1.0)
             UITabBar.appearance().barTintColor = UIColor.white
