@@ -26,6 +26,7 @@
 		9D60F21C1DE52CB100AB0993 /* OishiiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D60F21B1DE52CB100AB0993 /* OishiiUITests.swift */; };
 		9D61A0171DFFE7DD0090E7E7 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61A0161DFFE7DD0090E7E7 /* HomeTableViewCell.swift */; };
 		9D6945B01DF11B8C00997226 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D6945AF1DF11B8C00997226 /* GoogleService-Info.plist */; };
+		9D7587F81E00A81700F0BCC1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7587F71E00A81700F0BCC1 /* Theme.swift */; };
 		9DD58F811DF79E5D00C625DA /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD58F801DF79E5D00C625DA /* Recipe.swift */; };
 		E9B6B7891DF4FA7E00238C1A /* YummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B6B7881DF4FA7E00238C1A /* YummyData.swift */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		9D60F21D1DE52CB100AB0993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D61A0161DFFE7DD0090E7E7 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		9D6945AF1DF11B8C00997226 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9D7587F71E00A81700F0BCC1 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		9DD58F801DF79E5D00C625DA /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		E950D2251DF63CF30031931C /* Oishii.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Oishii.entitlements; sourceTree = "<group>"; };
 		E9B6B7881DF4FA7E00238C1A /* YummyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YummyData.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			children = (
 				E950D2251DF63CF30031931C /* Oishii.entitlements */,
 				9D60F1FB1DE52CB100AB0993 /* AppDelegate.swift */,
+				9D7587F71E00A81700F0BCC1 /* Theme.swift */,
 				9D581DE51DFB57FC002FA2B7 /* SettingsTableViewController.swift */,
 				9D1200041DFFA6120065CBF2 /* SettingsTableViewCell.swift */,
 				9D60F1FD1DE52CB100AB0993 /* ViewController.swift */,
@@ -398,6 +401,7 @@
 				496B3B601DEBF4AE00E6359F /* RecipesTableViewController.swift in Sources */,
 				9D03869A1DEE356900E10558 /* HomeViewController.swift in Sources */,
 				9D581DE61DFB57FC002FA2B7 /* SettingsTableViewController.swift in Sources */,
+				9D7587F81E00A81700F0BCC1 /* Theme.swift in Sources */,
 				9D03869C1DEE3E6500E10558 /* FavoritesTableViewCell.swift in Sources */,
 				9DD58F811DF79E5D00C625DA /* Recipe.swift in Sources */,
 			);
