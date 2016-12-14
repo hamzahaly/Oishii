@@ -39,12 +39,11 @@ class YummyData: NSObject {
         
         // start loading offline data
         loadOffline()
-        NSLog("\(editors)")
-        NSLog("\(favoriteRecipes)")
         
         // get online data
         ref.child("recipes").observeSingleEvent(of: .value, with: { (snapshot) in
             self.recipes = [Recipe]()
+            
             self.editors = [Recipe]()
             for child in snapshot.children.allObjects as! [FIRDataSnapshot] {
                 let data = child.value as! [String:Any]
@@ -62,7 +61,11 @@ class YummyData: NSObject {
                     self.editors.append(recipe)
                 }
             }
-            
+            if !self.editors.isEmpty {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadEditors"), object: nil)
+            } else {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "failedLoad"), object: nil)
+            }
             // save to offline
             self.save()
         })

@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class RecipeViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class RecipeViewController: UIViewController, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate {
     var selectedRecipe : Recipe = Recipe()
     var favoritedRecipe : Bool = false
     
@@ -106,10 +106,9 @@ class RecipeViewController: UIViewController, MFMailComposeViewControllerDelegat
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
-        //mailComposerVC.setToRecipients(["someone@somewhere.com"])
         mailComposerVC.setSubject("Recipe for \(selectedRecipe.name)")
         mailComposerVC.addAttachmentData(UIImagePNGRepresentation(recipeImage.image!)!, mimeType: "image/png", fileName:  "\(selectedRecipe.name).png")
-        mailComposerVC.setMessageBody("\(recipeLongDescription.text!)\n\(ingredList.text!)\n\(recipeInstructions.text!)", isHTML: false)
+        mailComposerVC.setMessageBody("\(recipeLongDescription.text!)\n\n\(ingredList.text!)\n\(recipeInstructions.text!)\n\nRecipe from Oishii", isHTML: false)
         
         return mailComposerVC
     }
@@ -118,6 +117,27 @@ class RecipeViewController: UIViewController, MFMailComposeViewControllerDelegat
         let sendMailErrorAlert = UIAlertController(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", preferredStyle: UIAlertControllerStyle.alert)
         sendMailErrorAlert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
         self.present(sendMailErrorAlert, animated: true, completion: nil)
+    }
+    
+    @IBAction func textRecipe(_ sender: Any) {
+        if MFMessageComposeViewController.canSendText() {
+            let controller = MFMessageComposeViewController()
+            controller.body = "Check out Oishii to find a recipe for \(selectedRecipe.name)!"
+            controller.messageComposeDelegate = self
+            if MFMessageComposeViewController.canSendAttachments() {
+                controller.addAttachmentData(UIImagePNGRepresentation(recipeImage.image!)!, typeIdentifier: "image/png", filename:"\(selectedRecipe.name).png")
+            }
+            self.present(controller, animated: true, completion: nil)
+        } else {
+            let sendTextErrorAlert = UIAlertController(title: "Could Not Send Text", message: "Your device could not send text.  Please check texting configuration and try again.", preferredStyle: UIAlertControllerStyle.alert)
+            sendTextErrorAlert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+            self.present(sendTextErrorAlert, animated: true, completion: nil)
+        }
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        //... handle sms screen actions
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: MFMailComposeViewControllerDelegate Method

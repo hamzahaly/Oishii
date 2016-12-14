@@ -12,12 +12,30 @@ import SDWebImage
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    
     var selectedRecipe : Recipe = Recipe()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(loadEditors(notification:)), name:NSNotification.Name(rawValue: "loadEditors"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(failedLoad(notification:)), name:NSNotification.Name(rawValue: "failedLoad"), object: nil)
+        
+        self.tableView.reloadData()
+    }
+    
+    func loadEditors(notification: NSNotification) {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func failedLoad(notification: NSNotification) {
+        let alert = UIAlertController(title: "Failure", message: "Invalid JSON, failed to load", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
