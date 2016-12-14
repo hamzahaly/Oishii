@@ -23,31 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSPlacesClient.provideAPIKey("AIzaSyAKEfmDt554Bnecyxrh8BFVIDKeON9DBmk")
         // Override point for customization after application launch.
         
-        if !YummyData.shared.theme {
-            UINavigationBar.appearance().barTintColor = UIColor(red: 139/255, green: 191/225, blue: 131/255, alpha: 1.0)
-            
-            
-            UITabBar.appearance().tintColor = UIColor(red: 255/255, green: 133/225, blue: 152/255, alpha: 1.0)
-            UITabBar.appearance().barTintColor = UIColor(red: 139/255, green: 191/225, blue: 131/255, alpha: 1.0)
-            UITabBar.appearance().unselectedItemTintColor = UIColor.darkGray
-            
-            UISearchBar.appearance().barTintColor = UIColor(red: 139/255, green: 191/225, blue: 131/255, alpha: 1.0)
-            
-            let cancelButtonAttributes: NSDictionary = [NSForegroundColorAttributeName: UIColor.darkGray]
-            UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes as? [String: AnyObject], for: UIControlState.normal)
-        } else {
-            UINavigationBar.appearance().barTintColor = UIColor.white
-            
-            UITabBar.appearance().tintColor = UIColor(red: 255/255, green: 133/225, blue: 152/255, alpha: 1.0)
-            UITabBar.appearance().barTintColor = UIColor.white
-            UITabBar.appearance().unselectedItemTintColor = UIColor.darkGray
-            
-            UISearchBar.appearance().barTintColor = UIColor.darkGray
-            
-            let cancelButtonAttributes: NSDictionary = [NSForegroundColorAttributeName: UIColor.white]
-            UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes as? [String: AnyObject], for: UIControlState.normal)
-        }
-        
         return true
     }
 
